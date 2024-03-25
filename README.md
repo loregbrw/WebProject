@@ -20,3 +20,9 @@ O que precisa possuir an hora de cadastar Receitas:
 - Ingredientes
 - Modo de preparo
 - Botão de favoritar
+
+**Precisa ter no projeto:**
+- Login do usuário
+- Modo claro e escuro
+- Responsividade para celular e qualquer tela
+- Buscar, deletar e registrar dados no banco de dados
