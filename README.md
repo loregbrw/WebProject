@@ -2,7 +2,7 @@
 
 Site de Planejamento Alimentar
 
-Paleta de Cores
+Paleta de Cores:
 - #DBCBBC = Marzipan
 - #5C5E22 = Verde Musgo
 - #CCA67F = Macchiato
