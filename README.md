@@ -2,6 +2,15 @@
 
 Site de Planejamento Alimentar
 
+Paleta de Cores
+#DBCBBC = Marzipan
+#5C5E22 = Verde Musgo
+#CCA67F = Macchiato
+#462404 = Chocolate
+#935732 = Terracota
+#686230 = Verde Amarelado
+#C08332 = Mostarda
+
 Requisitos Funcionais:
 - Pode criar um perfil
 - Pode acessar seu perfil
