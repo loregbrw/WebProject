@@ -1,12 +1,12 @@
 .font {
     font-family: 'Figtree', sans-serif;
-}
-
-.header {
-    background-image: url("../img/header-img.png");
-    background-size: cover;
+    font-size: 1.1rem;
 }
 
 .white {
     color: white;
+}
+
+.chocolate-brown {
+    color: #462404;
 }
