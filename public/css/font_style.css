@@ -1,11 +1,13 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .font {
     font-family: 'Figtree', sans-serif;
     font-size: 1.3rem;
-}
-
-.header {
-    background-image: url("../img/header-img.png");
-    background-size: cover;
 }
 
 .white {

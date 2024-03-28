@@ -1,0 +1,33 @@
+main {
+    padding: 130px 5%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid #5C5E22;
+
+    padding: 45px;
+
+}
+
+aside {
+    width: 25%;
+}
+
+article {
+    width: 70%;
+}
