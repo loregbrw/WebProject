@@ -1,5 +1,6 @@
 .font {
     font-family: 'Figtree', sans-serif;
+    font-size: 1.3rem;
 }
 
 .header {
@@ -9,4 +10,42 @@
 
 .white {
     color: white;
+}
+
+.superbold {
+    font-weight: 900;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.big {
+    font-size: 1.5rem;
+}
+
+.small {
+    font-size: 1rem;
+}
+
+.green {
+    color: #5C5E22;
+}
+
+.yellow {
+    color: #C08332;
+}
+
+.info {
+    text-decoration: none;
+    color: gray;
+    text-align: center;
+}
+
+.margin_zero {
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
