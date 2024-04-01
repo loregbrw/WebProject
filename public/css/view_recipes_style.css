@@ -9,6 +9,7 @@
     padding: 45px;
 
     flex-wrap: wrap;
+    text-align: justify;
 }
 
 .view-recipes-header {
