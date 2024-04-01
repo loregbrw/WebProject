@@ -17,17 +17,85 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 2px solid #5C5E22;
+    padding: 10px;
 
-    padding: 45px;
+    overflow: hidden;
 
 }
 
+.profile {
+    flex-direction: row;
+    height: 200px;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 40%;
+    height: 100%;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile > .profile-text {
+    justify-content: space-between;
+    height: 100%;
+    width: 60%;
+    padding: 10px 20px;
+}
+
 aside {
+    display: flex;
+    flex-direction: column;
     width: 25%;
+    gap: 25px;
 }
 
 article {
     width: 70%;
+}
+
+.button {
+    height: 30px;
+}
+
+.followers {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 7px;
+    height: auto;
+    padding-bottom: 3px;
+}
+
+.followers img {
+    height: 90%;
+}
+
+.date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    height: auto;
+}
+
+.date-header a {
+    height: 90%;
+}
+
+.date-header a img {
+    height: 100%;
+}
+
+.meal {
+    width: 100%;
+    background-color: #C08332;
 }
