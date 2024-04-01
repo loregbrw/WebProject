@@ -1,0 +1,22 @@
+.small-box {
+    font-family: 'Figtree', sans-serif;
+    font-size: 1.0rem;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.box-green {
+    background-color: #5C5E22;
+}
+
+.box-yellow {
+    background-color: #C08332;
+}
+
+.box-brown {
+    background-color: #462404;
+}
+
+.box-macchiato {
+    background-color: #CCA67F;
+}
