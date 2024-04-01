@@ -34,6 +34,10 @@
     font-size: 1rem;
 }
 
+.supersmall {
+    font-size: 0.9rem;
+}
+
 .green {
     color: #5C5E22;
 }
