@@ -1,0 +1,24 @@
+.view-recipes-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+
+    border-radius: 20px;
+    border: 2px solid #5C5E22;
+
+    padding: 45px;
+}
+
+.view-recipes-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-recipes-username {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
