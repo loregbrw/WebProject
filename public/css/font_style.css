@@ -26,6 +26,10 @@
     font-size: 1.5rem;
 }
 
+.very-big {
+    font-size: 2.5rem;
+}
+
 .small {
     font-size: 1rem;
 }
@@ -42,6 +46,10 @@
     color: #C08332;
 }
 
+.chocolate-brown {
+    color: #462404;
+}
+
 .info {
     text-decoration: none;
     color: gray;
@@ -54,10 +62,6 @@
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-}
-
-.chocolate-brown {
-    color: #462404;
 }
 
 .big-title {
