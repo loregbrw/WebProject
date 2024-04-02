@@ -61,6 +61,19 @@ input {
     font-family: 'Figtree', sans-serif;
 }
 
+textarea {
+    width: 100%;
+    height: 100%; 
+    resize: none;
+
+    border-radius: 7px;
+    border: 2px solid #5C5E22;
+    padding: 10px;
+
+    text-align: justify;
+    font-family: 'Figtree', sans-serif;
+}
+
 button {
     height: 45px;
     border-radius: 7px;
