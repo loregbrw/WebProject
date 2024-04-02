@@ -11,8 +11,6 @@ const view_recipes = require('./src/controllers/view_recipes');
 const edit_recipes = require('./src/controllers/edit_recipes');
 const profile = require('./src/controllers/profile');
 const calendar = require('./src/controllers/calendar');
-const edit_recipe_type = require('./src/controllers/edit_recipe_type');
-
 
 route.get('/', index.pagIndexGet);
 
@@ -29,6 +27,12 @@ route.get('/home', home.pagHomeGet);
 route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 
 route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
+
+route.get('/profile', profile.pagProfileGet);
+
+route.get('/calendar', calendar.pagCalendarGet);
+
+
 // route.post('/login', login.pagLoginPost);
 
 module.exports = route;
