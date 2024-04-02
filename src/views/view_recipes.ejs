@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="css/view_recipes_style.css">
     <link rel="stylesheet" type="text/css" href="css/small_box_style.css">
     <link rel="stylesheet" type="text/css" href="css/display_flex_style.css">
+    <link rel="stylesheet" type="text/css" href="css/sign_style.css">
+
     <title>Document</title>
 </head>
 
@@ -76,7 +78,12 @@
                     </div>
                 </div>
                 <div class="view-recipes-content flex-column gap-2">
-                    <h2 class="font chocolate-brown very-big bold">Pizza de Queijo</h2>
+                    <div class="recipe-title-and-favorite flex-row">
+                        <h2 class="font chocolate-brown very-big bold">Pizza de Queijo</h2>
+                        <div class="view-recipes-favorite">
+                            <img class="icon" src="img/icon-favorite.png">
+                        </div>
+                    </div>
                     <div>
                         <img class="icon" src="img/icon-clock-green.png">
                         <span class="font green">1h30</span>
@@ -89,9 +96,11 @@
                         <span class="small-box box-brown white">Janta</span>
                         <span class="small-box box-macchiato white">Almoço</span>
                     </div>
-                    descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
-                    descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
-                    descrição 
+                    <div class="font chocolate-brown">
+                        descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
+                        descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
+                        descrição 
+                    </div>
                 </div>
             </div>
             <div class="view-recipes-bottom flex-row">
@@ -122,6 +131,11 @@
                             <li>Passo 4</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div class="view-recipes-button">
+                <div class="edit-button">
+                    <button>Editar</button>
                 </div>
             </div>
         </div>
