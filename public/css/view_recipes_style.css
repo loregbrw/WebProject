@@ -36,7 +36,6 @@
 
 .view-recipes-content {
     width: 65%;
-    text-align: justify;
 
 }
 
@@ -59,14 +58,13 @@
 
 .view-recipes-bottom {
     justify-content: center;
-    text-align: justify;
 
     width: 100%;
     gap: 3%;
 }
 
 .view-recipes-ingredients{
-    width: 35%;
+    min-width: 30%;
 }
 
 .view-recipes-steps {

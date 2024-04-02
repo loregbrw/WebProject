@@ -1,0 +1,20 @@
+.recipe-title-and-favorite input{
+    width: 100%;
+}
+
+.recipe-info input{
+    width: 100%;
+}
+
+.recipe-types {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recipe-type-box, .recipe-type-add {
+    width: fit-content;
+}
+
+.recipe-description input{
+    width: 100%;
+}

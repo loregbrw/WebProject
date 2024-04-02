@@ -21,6 +21,8 @@
     <link rel="stylesheet" type="text/css" href="css/small_box_style.css">
     <link rel="stylesheet" type="text/css" href="css/display_flex_style.css">
     <link rel="stylesheet" type="text/css" href="css/sign_style.css">
+    <link rel="stylesheet" type="text/css" href="css/edit_recipes_style.css">
+
 
     <title>Document</title>
 </head>
@@ -69,62 +71,71 @@
                 <div class="view-recipes-content flex-column gap-2">
                     <div class="recipe-title-and-favorite flex-row">
                         <input type="text" placeholder="Título" required>
-                        <div class="view-recipes-favorite">
-                            <img class="icon" src="img/icon-favorite.png">
+                    </div>
+                    <div class="recipe-info">
+                        <img class="icon" src="img/icon-clock-green.png">
+                        <input type="text" placeholder="01:30" required>
+                        <img class="icon" src="img/icon-portions-green.png">
+                        <input type="number" placeholder="2" min="1" required>
+                        <img class="icon" src="img/icon-private-bigger.png">
+                    </div>
+                    <div class="recipe-types flex-row">
+                        <div class="recipe-type-box">
+                            <span class="small-box box-green white">Salgado</span>
+                            <span class="small-box box-yellow white">Quente</span>
+                            <span class="small-box box-brown white">Janta</span>
+                            <span class="small-box box-macchiato white">Almoço</span>
+                        </div>
+                        <div class="recipe-type-add">
+                            <img class="icon" src="img/icon-delete.png">
+                            <img class="icon" src="img/plus-icon.png">
                         </div>
                     </div>
-                    <div>
-                        <img class="icon" src="img/icon-clock-green.png">
-                        <span class="font green">1h30</span>
-                        <img class="icon" src="img/icon-portions-green.png">
-                        <span class="font green">2 porções</span>
-                    </div>
-                    <div>
-                        <span class="small-box box-green white">Salgado</span>
-                        <span class="small-box box-yellow white">Quente</span>
-                        <span class="small-box box-brown white">Janta</span>
-                        <span class="small-box box-macchiato white">Almoço</span>
-                    </div>
-                    <div class="font chocolate-brown">
-                        descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
-                        descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição 
-                        descrição 
+                    <div class="recipe-description font chocolate-brown">
+                        <textarea name="description" id="" maxlength="255" required>descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição descrição
+                        </textarea>
                     </div>
                 </div>
             </div>
             <div class="view-recipes-bottom flex-row">
-                <div class="view-recipes-ingredients flex-column">
+                <div class="view-recipes-ingredients flex-column gap-2">
                     <div class="recipes-ingredients-title">
                         <img class="icon" src="img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
-                    <div class="font chocolate-brown">
-                        <ul>
-                            <li>Ingrediente 1</li>
-                            <li>Ingrediente 2</li>
-                            <li>Ingrediente 3</li>
-                            <li>Ingrediente 4</li>
-                        </ul>
+                    <div class="font chocolate-brown flex-column gap-2">
+                        <input type="text" placeholder="Ingrediente 1" maxlength="255" required>
+                        <input type="text" placeholder="Ingrediente 2" maxlength="255" required>
+                        <input type="text" placeholder="Ingrediente 3" maxlength="255" required>
+                        <input type="text" placeholder="Ingrediente 4" maxlength="255" required>
+                    </div>
+                    <div>
+                        <img class="icon" src="img/icon-delete.png">
+                        <img class="icon" src="img/plus-icon.png">
+                        <span class="yellow font bold small">Adicionar ingrediente</span>
                     </div>
                 </div>
-                <div class="view-recipes-steps flex-column">
+                <div class="view-recipes-steps flex-column gap-2">
                     <div class="recipes-ingredients-title">
-                        <img class="icon" src="img/icon-ingredients.png">
+                        <img class="icon" src="img/icon-preparation.png">
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
-                    <div class="font chocolate-brown">
-                        <ul>
-                            <li>Passo 1</li>
-                            <li>Passo 2</li>
-                            <li>Passo 3</li>
-                            <li>Passo 4</li>
-                        </ul>
+                    <div class="font chocolate-brown flex-column gap-2">
+                        <textarea name="" id="" required>Passo 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium magni odio aliquid assumenda iurhtrhrytrye repudiandae dignissimos, sint, vitae obcaecati voluptate corrupti quas soluta, unde eveniet excepturi debitis sed quo rerum?</textarea>
+                        <textarea name="" id="" required>Passo 2</textarea>
+                        <textarea name="" id="" required>Passo 3</textarea>
+                        <textarea name="" id="" required>Passo 4</textarea>
+                    </div>
+                    <div>
+                        <img class="icon" src="img/icon-delete.png">
+                        <img class="icon" src="img/plus-icon.png">
+                        <span class="yellow font bold small">Adicionar modo de preparo</span>
                     </div>
                 </div>
             </div>
             <div class="view-recipes-button">
                 <div class="edit-button">
-                    <button>Editar</button>
+                    <button>Salvar</button>
                 </div>
             </div>
         </form>
