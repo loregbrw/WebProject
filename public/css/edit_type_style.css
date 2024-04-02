@@ -1,0 +1,46 @@
+main {
+    padding: 0;
+    height: 100vh;
+}
+
+.edit-recipe-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.edit-recipe-type .box {
+    width: 25%;
+    padding: 45px;
+}
+
+.recipe-type-name{
+    width: 80%;
+}
+
+.recipe-type-name input {
+    width: 100%;
+}
+
+.type-select-color {
+    justify-content: space-between;
+    width: 80%;
+}
+
+.color-select {
+    width: 50%;
+}
+
+.type-select-color input{
+    width: 100%;
+}
+
+.delete-icon {
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.edit-button {
+    padding: 20px;
+}
