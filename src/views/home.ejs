@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/nav_bar_style.css">
     <link rel="stylesheet" type="text/css" href="css/home_style.css">
     <link rel="stylesheet" type="text/css" href="css/sign_style.css">
+    <link rel="stylesheet" type="text/css" href="css/display_flex_style.css">
     <title>Home page</title>
 </head>
 
@@ -36,10 +37,7 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav">
                             <li class="nav-item font chocolate-brown">
-                                <a class="nav-link" href="#"><b>Entrar</b></a>
-                            </li>
-                            <li class="nav-item font chocolate-brown">
-                                <a class="nav-link" href="#"><b>Cadastrar</b></a>
+                                <a class="nav-link" href="#"><b>Sair</b></a>
                             </li>
                             <li class="nav-item">
                                 <img src="img/icon-dark-mode-black.png" class="icon nav-link">
@@ -54,7 +52,7 @@
         <div class="section">
             <aside>
                 <form action="">
-                    <input type="text" name="" id="" class="box" placeholder="Pesquisar em suas receitas">
+                    <input class="width-100" type="text" name="" id="" class="box" placeholder="Pesquisar em suas receitas">
                     <a href=""><img src="/img/filter-icon.png" alt=""></a>
                 </form>
 
@@ -75,8 +73,15 @@
                     </div>
                 </div>
 
-                <div class="box">
-
+                <div class="box flex-row gap-5">
+                    <div class="flex-column center">
+                        <img src="/img/calendar-icon.png" alt="">
+                        <a class="font chocolate-brown small bold" href="">Calendário</a>
+                    </div>
+                    <div class="flex-column center">
+                        <img src="/img/users-icon.png" alt="">
+                        <a class="font chocolate-brown small bold" href="">Comunidade</a>
+                    </div>
                 </div>
 
                 <div class="box gap">
@@ -107,32 +112,29 @@
                         <span class="chocolate-brown superbold">Pizza de Queijo</span>
                         <div class="recipe-info">
                             <div class="icon-info">
-                                <img src="/img/clock-icon.png" alt="clock">
+                                <img src="/img/icon-clock-green.png" alt="clock">
                                 <span class="font small green">1h30min</span>
                             </div>
                             <div class="icon-info">
-                                <img src="/img/meal-icon.png" alt="meal">
+                                <img src="/img/icon-portions-green.png" alt="meal">
                                 <span class="font small green">2 porções</span>
                             </div>
                         </div>
+                        <div class="flex-row width-100 rows flex-wrap">
+                            <div class="meal font supersmall white bold width center">Café da manhã</div>
+                            <div class="meal font supersmall white bold width center">Almoço</div>
+                            <div class="meal font supersmall white bold width center">Almoço</div>
+                        </div>
+                        <div class="favorite">
+                            <button><img src="/img/star-icon.png" alt=""></button>
+                        </div>
                     </div>
                 </div>
-                <div class="recipe box">
-                    <img class="recipe-img" src="https://assets.unileversolutions.com/v1/113271749.png">
-                </div>
-                <div class="recipe box">
-                    <img class="recipe-img" src="https://assets.unileversolutions.com/v1/113271659.png">
-                </div>
-                <div class="recipe box">
-                    <img class="recipe-img" src="https://assets.unileversolutions.com/v1/113271759.png">
-                </div>
-                <div class="recipe box">
-                    <img class="recipe-img" src="https://assets.unileversolutions.com/v1/113271747.jpg">
-                </div>
-                <div class="recipe box">
-                    <img class="recipe-img" src="https://assets.unileversolutions.com/v1/113271726.jpg">
-                </div>
             </article>
+
+        </div>
+        <div class="button-more">
+            <a href=""><img src="/img/plus-icon.png" alt=""></a>
         </div>
     </main>
 </body>

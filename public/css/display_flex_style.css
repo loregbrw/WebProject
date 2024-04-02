@@ -8,6 +8,11 @@
     flex-direction: row;
 }
 
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .gap-1{
     gap: 10px;
 }
@@ -22,4 +27,8 @@
 
 .gap-4{
     gap: 40px;
+}
+
+.gap-5{
+    gap: 50px;
 }
