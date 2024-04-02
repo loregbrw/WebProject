@@ -8,6 +8,7 @@ const signup_2 = require('./src/controllers/signup_2');
 const signup_3 = require('./src/controllers/signup_3');
 const home = require('./src/controllers/home');
 const view_recipes = require('./src/controllers/view_recipes');
+const edit_recipes = require('./src/controllers/edit_recipes');
 
 route.get('/', index.pagIndexGet);
 
@@ -22,6 +23,8 @@ route.get('/signup-3', signup_3.pagSignup3Get);
 route.get('/home', home.pagHomeGet);
 
 route.get('/view-recipes', view_recipes.pagViewRecipesGet);
+
+route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 // route.post('/login', login.pagLoginPost);
 
 module.exports = route;
