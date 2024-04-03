@@ -11,7 +11,9 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 3%;
+    gap: 35px;
+    
+    flex-wrap: wrap;
 }
 
 .box {
@@ -22,14 +24,14 @@ main {
     border-radius: 10px;
     border: 2px solid #5C5E22;
     padding: 10px;
+    
 
     overflow: hidden;
-
 }
 
 .profile {
     flex-direction: row;
-    height: 200px;
+    height: 175px;
     justify-content: flex-start;
     padding: 0;
 }
@@ -55,14 +57,15 @@ main {
 aside {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    
+    width: 400px;
     gap: 25px;
 }
 
 article {
-    width: 70%;
+    width: calc(100% - 400px - 35px);
     height: fit-content;
-    gap: 20px;
+    gap: 25px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -149,7 +152,7 @@ aside form input {
 }
 
 .recipe {
-    width: 270px;
+    min-width: 270px;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -220,10 +223,6 @@ aside form input {
     width: calc(50% - 3px);
 }
 
-.width-100 {
-    width: 100%;
-}
-
 .rows {
     gap: 6px;
 }
@@ -243,20 +242,4 @@ aside form input {
 
 .button-more img {
     height: 70px;
-}
-
-.height-65 {
-    height: 65%;
-}
-
-.height-35 {
-    height: 35%;
-}
-
-.width-35 {
-    width: 35%;
-}
-
-.width-65 {
-    width: 65%;
 }

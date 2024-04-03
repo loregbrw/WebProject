@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* background colors */
+
+.bg-yellow {
+    background-color: #C08332;
+}
+
+.bg-green {
+    background-color: #5C5E22;
+}
+
+.bg-brown {
+    background-color: #462404;
+}
+
+/* format */
+
+.margin-zero {
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.padding-zero {
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* height */
+
+.height-100 {
+    height: 100%;
+}
+
+.height-65 {
+    height: 65%;
+}
+
+.height-35 {
+    height: 35%;
+}
+
+/* width */
+
+.width-100 {
+    width: 100%;
+}
+
+.width-65 {
+    width: 65%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-35 {
+    width: 35%;
+}
+
+/* format */
+
+.fit-contain {
+    object-fit: contain;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/* display flex */
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* gap */
+
+.gap-10{
+    gap: 10px;
+}
+
+.gap-20{
+    gap: 20px;
+}
+
+.gap-30{
+    gap: 30px;
+}
+
+.gap-40{
+    gap: 40px;
+}
+
+.gap-50{
+    gap: 50px;
+}
