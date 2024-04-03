@@ -9,6 +9,7 @@ const signup_3 = require('./src/controllers/signup_3');
 const home = require('./src/controllers/home');
 const view_recipes = require('./src/controllers/view_recipes');
 const edit_recipes = require('./src/controllers/edit_recipes');
+const edit_recipe_type = require('./src/controllers/edit_recipe_type');
 const profile = require('./src/controllers/profile');
 const calendar = require('./src/controllers/calendar');
 
@@ -27,6 +28,8 @@ route.get('/home', home.pagHomeGet);
 route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 
 route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
+
+route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 
 route.get('/profile', profile.pagProfileGet);
 
