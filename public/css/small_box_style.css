@@ -4,6 +4,7 @@
     border-radius: 5px;
     padding: 5px 15px;
     line-height: 2;
+    height: fit-content;
 }
 
 .box-green {

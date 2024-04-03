@@ -108,7 +108,7 @@ article {
 }
 
 .meal {
-    width: 100%;
+    width: fit-content;
     background-color: #C08332;
     border-radius: 5px;
     padding: 0 5px;
@@ -152,7 +152,7 @@ aside form input {
 }
 
 .recipe {
-    min-width: 270px;
+    width: 280px;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -219,9 +219,6 @@ aside form input {
     height: 1.5rem;
 }
 
-.width {
-    width: calc(50% - 3px);
-}
 
 .rows {
     gap: 6px;
