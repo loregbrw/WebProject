@@ -96,6 +96,11 @@
     flex-wrap: wrap;
 }
 
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
 /* gap */
 
 .gap-10{
