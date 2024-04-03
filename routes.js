@@ -12,6 +12,7 @@ const edit_recipes = require('./src/controllers/edit_recipes');
 const edit_recipe_type = require('./src/controllers/edit_recipe_type');
 const profile = require('./src/controllers/profile');
 const calendar = require('./src/controllers/calendar');
+const edit_meal = require('./src/controllers/edit_meal');
 
 route.get('/', index.pagIndexGet);
 
@@ -34,6 +35,8 @@ route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 route.get('/profile', profile.pagProfileGet);
 
 route.get('/calendar', calendar.pagCalendarGet);
+
+route.get('/edit-meal', edit_meal.pagEditMealGet);
 
 
 // route.post('/login', login.pagLoginPost);

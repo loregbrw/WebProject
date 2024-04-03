@@ -3,3 +3,4 @@ module.exports = {
         res.render('../views/edit_recipe_type');
     }
 }
+
