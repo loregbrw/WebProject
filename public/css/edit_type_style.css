@@ -21,8 +21,8 @@ main {
 
 .recipe-type-name input {
     width: 100%;
-    background-color: #C08332;
-    color: #ffff;
+    /* background-color: #C08332;
+    color: #ffff; */
 }
 
 .type-select-color {
