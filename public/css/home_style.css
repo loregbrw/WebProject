@@ -16,6 +16,48 @@ main {
     flex-wrap: wrap;
 }
 
+#profile .box {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 400px;
+}
+
+#profile .box > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    width: calc(100% - 400px);
+    padding: 2% 3%;
+}
+
+.main-img {
+    height: 400px;
+    width: 400px;
+
+    object-fit: cover;
+}
+
+@media (max-width: 991px) {
+    #profile .box {
+        flex-direction: column;
+        height: max-content;
+        width: 85%;
+        align-self: center;
+    }
+
+    .main-img {
+        width: 100%;
+    }
+
+    #profile .box > div {
+        width: 100%;
+        min-height: 400px;
+    }
+}
+
+
 .box {
     display: flex;
     flex-direction: column;

@@ -37,19 +37,7 @@
     flex-direction: column;
 }
 
-@media (max-width: 893px) {
-    .profile-box {
-        height: max-content;
-    }
 
-    .profile-box img {
-        width: 100%;
-    }
-
-    .profile-text {
-        width: 100%;
-    }
-}
 
 .padding-bigger {
     padding: 2.5%;
