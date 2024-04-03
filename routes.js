@@ -43,7 +43,7 @@ route.get('/edit-meal', edit_meal.pagEditMealGet);
 
 route.get('/day', day.pagDayGet);
 
-route.get('/edit-profile', day.pagEditProfileGet);
+route.get('/edit-profile', edit_profile.pagEditProfileGet);
 
 
 // route.post('/login', login.pagLoginPost);
