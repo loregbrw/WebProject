@@ -21,6 +21,8 @@ main {
 
 .recipe-type-name input {
     width: 100%;
+    background-color: #C08332;
+    color: #ffff;
 }
 
 .type-select-color {
@@ -34,6 +36,12 @@ main {
 
 .type-select-color input{
     width: 100%;
+}
+
+.time-select input, .time-select{
+    width: 100%;
+    text-align: center;
+    align-content: center;
 }
 
 .delete-icon {
