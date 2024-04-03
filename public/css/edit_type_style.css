@@ -12,11 +12,11 @@ main {
 
 .edit-recipe-type .box {
     width: 25%;
-    padding: 45px;
+    padding: 45px 55px;
 }
 
 .recipe-type-name{
-    width: 80%;
+    width: 100%;
 }
 
 .recipe-type-name input {
@@ -25,7 +25,7 @@ main {
 
 .type-select-color {
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
 }
 
 .color-select {
@@ -41,6 +41,10 @@ main {
     width: 100%;
 }
 
-.edit-button {
-    padding: 20px;
+.save-button {
+    width: 100%;
+}
+.save-button button{
+    padding: 5px 50px;
+    width: 100%;
 }
