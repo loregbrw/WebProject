@@ -89,6 +89,10 @@
     width: 47.5%;
 }
 
+.max-width {
+    max-width: 100%;
+}
+
 /* format */
 
 .fit-contain {

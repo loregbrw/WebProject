@@ -22,10 +22,13 @@ route.get('/', index.pagIndexGet);
 route.get('/login', login.pagLoginGet);
 
 route.get('/signup-1', signup_1.pagSignup1Get);
+route.post('/signup-1', signup_1.pagSignup1Post);
 
 route.get('/signup-2', signup_2.pagSignup2Get);
+route.post('/signup-2', signup_2.pagSignup2Post);
 
 route.get('/signup-3', signup_3.pagSignup3Get);
+route.post('/signup-3', signup_3.pagSignup3Post);
 
 route.get('/home', home.pagHomeGet);
 

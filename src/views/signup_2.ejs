@@ -26,10 +26,10 @@
     <div class="bg-img sign">
         <div class="container">
             <span class="font superbold big green">CADASTRAR</span>
-            <form>
-                <input class="width-100" type="text" placeholder="Nome completo" required>
+            <form action="/signup-2" method="post">
+                <input class="width-100" type="text" name="user_name" placeholder="Nome completo" required>
                 <div>
-                    <input class="width-100" type="date" required>
+                    <input class="width-100" type="date" name="user_birthdate" required>
                     <a class="font small bod info" href="">Sua data de nascimento</a>
                 </div>
                 <button class="width-100" type="submit">Cadastrar</button>

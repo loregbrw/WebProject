@@ -19,6 +19,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script defer src="/js/script.js"></script>
     <title>Cadastrar</title>
 </head>
 
@@ -27,11 +28,11 @@
     <div class="bg-img sign">
         <div class="container">
             <span class="font superbold big green">CADASTRAR</span>
-            <form>
-                <input class="width-100" type="text" placeholder="E-mail" required>
-                <input class="width-100" type="text" placeholder="Nome de usuário" required>
-                <input class="width-100" type="text" placeholder="Senha" required>
-                <input class="width-100" type="text" placeholder="Confirmar Senha" required>
+            <form action="/signup-1" method="post">
+                <input class="width-100" type="email" name="user_email" placeholder="E-mail" required>
+                <input class="width-100" type="text" name="user_username" placeholder="Nome de usuário" required>
+                <input class="width-100" type="password" name="user_password" placeholder="Senha" required>
+                <input class="width-100" type="password" name="confirm_password" placeholder="Confirmar Senha" required>
                 <button class="width-100" type="submit">Cadastrar</button>
             </form>
         </div>
