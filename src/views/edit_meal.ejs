@@ -58,16 +58,16 @@
             <div class="box gap-40">
                 <h2 class="font chocolate-brown bold big">Editar refeição</h2>
                 <div class="recipe-type-name">
-                    <input type="text" placeholder="Nome da refeição">
+                    <input id="color-box" type="text" placeholder="Nome da refeição">
                 </div>
                 <div class="flex-row type-select-color gap-30">
                     <div class="color-select flex-column">
                         <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
-                        <input type="color" value="#C08332">
+                        <input id="color-selector-background" type="color" value="#C08332">
                     </div>
                     <div class="color-select flex-column">
                         <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
-                        <input type="color" value="#ffffff">
+                        <input id="color-selector-font" type="color" value="#ffffff">
                     </div>
                 </div>
                 <div class="time-select">
@@ -82,4 +82,5 @@
             </div>
         </div>
     </main>
+    <script src="/js/select_color.js" defer></script>
 </body>

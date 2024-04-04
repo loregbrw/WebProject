@@ -2,9 +2,8 @@
     min-height: 100vh;
 }
 
-
 .profile-box {
-    height:400px ;
+    height: 100vh;
     max-height: fit-content;
     display: flex;
     justify-content: center;
@@ -77,4 +76,10 @@
     background-color: #DBCBBC;
     border: 1px solid #5C5E22;
 }
+
+/* #profile > .edit-profile{
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+} */
 
