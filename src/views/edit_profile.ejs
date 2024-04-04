@@ -20,10 +20,9 @@
     <link rel="stylesheet" type="text/css" href="css/sign_style.css">
     <link rel="stylesheet" type="text/css" href="css/profile_style.css">
     <link rel="stylesheet" type="text/css" href="css/display_flex_style.css">
-
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/profile_style.css">
+
     <title>Editar Perfil</title>
 </head>
 
@@ -55,31 +54,18 @@
             </div>
         </nav>
     </header>
-    <main class="min-100vh">
-        <div class="flex-column width-100  gap-30">
-            <div class="box flex-row padding-zero profile-box">
-                <img src="/img/maria-c.jpg" alt="">
-                <div class="profile-text">
-                    <div>
-                        <span class="font chocolate-brown superbold very-big">Maria Carolina Bevervanso</span>
-                        <span class="font yellow">@Mariasina</span>
-                    </div>
-
-                    <span class="chocolate-brown font bold">Programadora iniciante buscando novas oportunidades e
-                        projetos para criar coisas novas.</span>
-
-                    <div>
-                        <span class="font green ">Idade: 19 anos</span>
-                        <span class="font green ">E-mail: carolbeveer@gmail.com</span>
-                    </div>
-
-                    <div class="gap-20">
-                        <div class="flex-row gap-10 width-100 flex-start">
-                            <img class="icon-font fit-contain" src="/img/people-icon.png">
-                            <span class="font chocolate-brown width-100">503 seguidores</span>
-                        </div>
-                        <button>Editar</button>
-                    </div>
+    <main class="min-100vh gap-30" id="profile">
+        <div class="box edit-profile width-100 padding-zero">
+            <img class="main-img" src="/img/maria-c.jpg">
+            <div class="gap-30">
+                <div class="flex-column gap-20">
+                    <input type="text" placeholder="Maria Carolina Bevervanso" required>
+                    <textarea>Programadora iniciante buscando novas oportunidades e projetos para criar coisas novas.</textarea>
+                    <input type="email" placeholder="carolbeveer@gmail.com" required>
+                    <input type="date" value="2004-04-05" required>
+                </div>
+                <div class="">
+                    <button class="width-100">Editar</button>
                 </div>
             </div>
         </div>
