@@ -14,7 +14,8 @@ const profile = require('./src/controllers/profile');
 const calendar = require('./src/controllers/calendar');
 const edit_meal = require('./src/controllers/edit_meal');
 const day = require('./src/controllers/day');
-const edit_profile= require('./src/controllers/edit_profile');
+const edit_profile = require('./src/controllers/edit_profile');
+const comunity = require('./src/controllers/comunity');
 
 
 route.get('/', index.pagIndexGet);
@@ -44,6 +45,8 @@ route.get('/edit-meal', edit_meal.pagEditMealGet);
 route.get('/day', day.pagDayGet);
 
 route.get('/edit-profile', edit_profile.pagEditProfileGet);
+
+route.get('/comunity', comunity.pagComunityGet);
 
 
 // route.post('/login', login.pagLoginPost);
