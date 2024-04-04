@@ -16,13 +16,13 @@ main {
     flex-wrap: wrap;
 }
 
-#profile .box {
+#profile > .box {
     flex-direction: row;
     justify-content: space-between;
     height: 400px;
 }
 
-#profile .box > div {
+#profile > .box > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,6 +39,12 @@ main {
     object-fit: cover;
 }
 
+.show-box {
+    display: flex;
+    height: fit-content;
+}
+
+
 @media (max-width: 991px) {
     #profile .box {
         flex-direction: column;
@@ -51,9 +57,14 @@ main {
         width: 100%;
     }
 
-    #profile .box > div {
+    #profile > .box > div {
         width: 100%;
         min-height: 400px;
+    }
+
+    .show-box {
+        flex-direction: column;
+        gap: 25px;
     }
 }
 
@@ -157,6 +168,8 @@ article {
     background-color: #C08332;
     border-radius: 5px;
     padding: 0 5px;
+
+    height: max-content;
 }
 
 .gap  {

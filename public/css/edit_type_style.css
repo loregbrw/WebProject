@@ -11,7 +11,8 @@ main {
 }
 
 .edit-recipe-type .box {
-    width: 25%;
+    max-width: 90%;
+    width: 450px;
     padding: 45px 55px;
 }
 

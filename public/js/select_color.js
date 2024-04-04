@@ -10,15 +10,15 @@ const background_input = document.getElementById('color-selector-background');
 const font_input = document.getElementById('color-selector-font');
 const text_box = document.getElementById('color-box');
 
-background_input.addEventListener('input', function() {
-    const selected_color = this.value;
+background_input.addEventListener('change', function() {
+    const selected_color = background_input.value;
 
     text_box.style.backgroundColor = selected_color;
     console.log(selected_color);
 });
 
-font_input.addEventListener('input', function() {
-    const selected_color = this.value;
+font_input.addEventListener('change', function() {
+    const selected_color = font_input.value;
 
     text_box.style.color = selected_color;
     console.log(selected_color);
