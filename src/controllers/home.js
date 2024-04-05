@@ -1,4 +1,4 @@
-const user = require('../model/user_login');
+const user = require('../model/Users');
 
 module.exports = {
     async pagHomeGet(req, res) {

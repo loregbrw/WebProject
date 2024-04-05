@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const user = require('../model/user_login');
+const user = require('../model/Users');
 
 module.exports = {
     async pagLoginGet(req, res) {
