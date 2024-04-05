@@ -18,3 +18,24 @@
 .recipe-description input{
     width: 100%;
 }
+
+.edit-recipes-bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 1000px) {
+    .edit-recipes-bottom {
+        flex-direction: column;
+    }
+}
+@media (max-width: 600px) {
+    .recipe-info {
+        flex-direction: column;
+    }
+}

@@ -7,8 +7,6 @@
     border: 2px solid #5C5E22;
 
     padding: 45px;
-
-    flex-wrap: wrap;
 }
 
 .view-recipes-username {
@@ -25,7 +23,8 @@
 
 .view-recipes-top {
     justify-content: center;
-
+    display: flex;
+    flex-direction: row;
     width: 100%;
     gap: 3%;
 }
@@ -57,10 +56,11 @@
 }
 
 .view-recipes-bottom {
-    justify-content: center;
-
     width: 100%;
     gap: 3%;
+
+    display: flex;
+    flex-direction: row;
 }
 
 .view-recipes-ingredients{
@@ -82,4 +82,46 @@
 
 .edit-button button{
     padding: 5px 50px;
+}
+
+.box-header {
+    width: calc(40% - 20px);
+}
+
+.box-recipe-info {
+    width: calc(60% - 20px);
+}
+
+@media (max-width: 1500px) and (min-width: 1200px) {
+    .header-info {
+        flex-wrap: wrap;
+        align-items: center;
+        
+    }
+}
+
+@media (max-width: 1200px) {
+    .view-recipes-top{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .view-recipes-header{
+        width: 100% !important;
+    }
+
+    .view-recipes-content{
+        width: 100% !important;
+    }
+
+    .header-info {
+        flex-wrap: wrap;
+    }
+
+    .view-recipes-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

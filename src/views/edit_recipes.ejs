@@ -33,7 +33,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home"><img src="img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero" href="/home"><img src="img/logo-white-green.png"
+                            class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -44,8 +45,7 @@
                     <div class="collapse navbar-collapse center" id="navbarContent" style="">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration"
-                                    href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img src="img/icon-dark-mode-black.png">
@@ -61,30 +61,98 @@
             <div class="view-recipes-top flex-row">
                 <div class="view-recipes-header flex-column gap-30">
                     <div class="flex-column">
-                        <img class="recipes-img" src="img/pizza.jpg">
+                        <img class="recipes-img" id="imgFoto" src="img/pizza.jpg">
                     </div>
+                    <input type="file" id="flImage" name="foto" id="foto" accept="image/*" placeholder="Teste" hidden>
                 </div>
                 <div class="view-recipes-content flex-column gap-20">
                     <div class="recipe-title-and-favorite flex-row">
                         <input type="text" placeholder="Título" required>
                     </div>
                     <div class="recipe-info">
-                        <img class="icon" src="img/icon-clock-green.png">
-                        <input type="text" placeholder="01:30" required>
-                        <img class="icon" src="img/icon-portions-green.png">
-                        <input type="number" placeholder="2" min="1" required>
-                        <img class="icon" src="img/icon-private-bigger.png">
+                        <div class="flex-row">
+                            <img class="icon" src="img/icon-clock-green.png">
+                            <input type="text" placeholder="01:30" required>
+                        </div>
+                        <div class="flex-row">
+                            <img class="icon" src="img/icon-portions-green.png">
+                            <input type="number" placeholder="2" min="1" required>
+                        </div>
+                        <img class="icon" id="post_view_setting" src="img/icon-post-view-1-bigger.png"
+                            alt="Vizualização do post">
                     </div>
                     <div class="recipe-types flex-row">
-                        <div class="recipe-type-box">
-                            <span class="small-box box-green white">Salgado</span>
-                            <span class="small-box box-yellow white">Quente</span>
-                            <span class="small-box box-brown white">Janta</span>
-                            <span class="small-box box-macchiato white">Almoço</span>
+                        <div class="flex-wrap">
+                            <div class="recipe-type-box">
+                                <span class="small-box box-green white">Salgado</span>
+                                <span class="small-box box-yellow white">Quente</span>
+                                <span class="small-box box-brown white">Janta</span>
+                                <span class="small-box box-macchiato white">Almoço</span>
+                            </div>
+                            <div class="recipe-type-add">
+                                <img class="icon" src="img/icon-delete.png">
+                                <img class="icon" src="img/plus-icon.png" data-bs-toggle="modal"
+                                    data-bs-target="#types_meals">
+                            </div>
                         </div>
-                        <div class="recipe-type-add">
-                            <img class="icon" src="img/icon-delete.png">
-                            <img class="icon" src="img/plus-icon.png">
+                        <div class="modal fade" id="types_meals" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title font chocolate-brown big bold" id="exampleModalLabel">
+                                            Refeições e tipos de receita</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid flex-column gap-30">
+                                            <div>
+                                                <h3 class="green bold font">Refeições</h3>
+                                                <div class="row row-cols-1 row-cols-md-3">
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h3 class="green bold font">Tipos</h3>
+                                                <div class="row row-cols-1 row-cols-md-3">
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="edit-button">
+                                            <button type="button">Adicionar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="recipe-description font chocolate-brown">
@@ -93,13 +161,13 @@
                     </div>
                 </div>
             </div>
-            <div class="view-recipes-bottom flex-row">
+            <div class="edit-recipes-bottom gap-40">
                 <div class="view-recipes-ingredients flex-column gap-20">
                     <div class="recipes-ingredients-title">
                         <img class="icon" src="img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
-                    <div class="font chocolate-brown flex-column gap-20">
+                    <div class="font chocolate-brown flex-column gap-20 " id="ingredients">
                         <input type="text" placeholder="Ingrediente 1" maxlength="255" required>
                         <input type="text" placeholder="Ingrediente 2" maxlength="255" required>
                         <input type="text" placeholder="Ingrediente 3" maxlength="255" required>
@@ -107,7 +175,7 @@
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
-                        <img class="icon" src="img/plus-icon.png">
+                        <img class="icon" id="add_input_button" src="img/plus-icon.png">
                         <span class="yellow font bold small">Adicionar ingrediente</span>
                     </div>
                 </div>
@@ -116,7 +184,7 @@
                         <img class="icon" src="img/icon-preparation.png">
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
-                    <div class="font chocolate-brown flex-column gap-20">
+                    <div class="font chocolate-brown flex-column gap-20" id="steps">
                         <textarea name="" id=""
                             required>Passo 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium magni odio aliquid assumenda iurhtrhrytrye repudiandae dignissimos, sint, vitae obcaecati voluptate corrupti quas soluta, unde eveniet excepturi debitis sed quo rerum?</textarea>
                         <textarea name="" id="" required>Passo 2</textarea>
@@ -125,7 +193,7 @@
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
-                        <img class="icon" src="img/plus-icon.png">
+                        <img class="icon" id="add_textarea_button" src="img/plus-icon.png">
                         <span class="yellow font bold small">Adicionar modo de preparo</span>
                     </div>
                 </div>
@@ -137,6 +205,8 @@
             </div>
         </form>
     </main>
+    <script src="/js/add_photo.js" defer></script>
+    <script src="/js/add_recipe_information.js" defer></script>
 </body>
 
 </html>
