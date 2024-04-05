@@ -73,8 +73,8 @@
                         <img class="icon" src="img/icon-clock-green.png">
                         <input type="text" placeholder="0h00" required>
                         <img class="icon" src="img/icon-portions-green.png">
-                        <input type="number" placeholder="0" min="1" required>
-                        <img class="icon" src="img/icon-private-bigger.png">
+                        <input type="number" placeholder="1" min="1" required>
+                        <img class="icon" id="post_view_setting" src="img/icon-post-view-1-bigger.png" alt="Vizualização do post">
                     </div>
                     <div class="recipe-types flex-row">
                         <div class="recipe-type-box">
@@ -82,21 +82,63 @@
                         </div>
                         <div class="recipe-type-add">
                             <img class="icon" src="img/icon-delete.png">
-                            <img class="icon" data-bs-toggle="modal" data-bs-target="#types_meals"
-                                src="img/plus-icon.png">
+                            <img class="icon" data-bs-toggle="modal" data-bs-target="#types_meals" src="img/plus-icon.png">
                         </div>
                         <div class="modal fade" id="types_meals" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title font chocolate-brown bold" id="exampleModalLabel">Refeições e tipos de receita</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h1 class="modal-title font chocolate-brown big bold" id="exampleModalLabel">
+                                            Refeições e tipos de receita</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <span class="small-box box-green white bold">Almoço</span>
+                                        <div class="container-fluid flex-column gap-30">
+                                            <div>
+                                                <h3 class="green bold font">Refeições</h3>
+                                                <div class="row row-cols-1 row-cols-md-3">
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h3 class="green bold font">Tipos</h3>
+                                                <div class="row row-cols-1 row-cols-md-3">
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                    <div class="col center gap-10">
+                                                        <input type="checkbox">
+                                                        <label class="small-box box-green white bold">Almoço</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="padding">Adicionar</button>
+                                        <div class="edit-button">
+                                            <button type="button">Adicionar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
