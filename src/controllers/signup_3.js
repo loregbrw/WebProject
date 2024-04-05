@@ -13,9 +13,10 @@ module.exports = {
             email: email,
             password: password,
             birthdate: birthdate,
-            username: username
+            username: username,
+            image: "/img/user-img.jpeg"
         });
 
-        res.redirect('/home');
+        return res.redirect(`/home/${existingUser.username}`);
     }
 }

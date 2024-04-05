@@ -5,6 +5,14 @@
     box-sizing: border-box;
 }
 
+.hover:hover {
+    scale: 1.05;
+}
+
+.smallerhover:hover {
+    scale: 1.025;
+}
+
 /* background colors */
 
 .bg-yellow {

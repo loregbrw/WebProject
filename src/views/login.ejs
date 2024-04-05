@@ -13,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font_style.css">
-    <link rel="stylesheet" type="text/css" href="css/sign_style.css">
-    <link rel="stylesheet" type="text/css" href="css/home_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/font_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/home_style.css">
 
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Entrar</title>
 </head>
 
@@ -27,10 +27,10 @@
     <div class="bg-img sign">
         <div class="container">
             <span class="font superbold big green">ENTRAR</span>
-            <form>
-                <input class="width-100" type="text" placeholder="E-mail ou usuário" required>
+            <form action="/login" method="post">
+                <input class="width-100" name="user_email_username" type="text" placeholder="E-mail ou usuário" required>
                 <div>
-                    <input class="width-100" type="text" placeholder="Senha" required>
+                    <input class="width-100" type="password" name="user_password" type="text" placeholder="Senha" required>
                     <a class="font yellow small bold" href="">Esqueceu sua senha?</a>
                 </div>
                 <button class="width-100" type="submit">Entrar</button>

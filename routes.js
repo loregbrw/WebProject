@@ -22,6 +22,7 @@ const add_recipe = require('./src/controllers/add_recipe');
 route.get('/', index.pagIndexGet);
 
 route.get('/login', login.pagLoginGet);
+route.post('/login', login.pagLoginPost);
 
 route.get('/signup-1', signup_1.pagSignup1Get);
 route.post('/signup-1', signup_1.pagSignup1Post);
@@ -32,7 +33,8 @@ route.post('/signup-2', signup_2.pagSignup2Post);
 route.get('/signup-3', signup_3.pagSignup3Get);
 route.post('/signup-3', signup_3.pagSignup3Post);
 
-route.get('/home', home.pagHomeGet);
+route.get('/home/:username', home.pagHomeGet);
+route.post('/home/:username', home.pagHomeGet);
 
 route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 

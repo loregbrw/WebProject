@@ -13,16 +13,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font_style.css">
-    <link rel="stylesheet" type="text/css" href="css/icon_style.css">
-    <link rel="stylesheet" type="text/css" href="css/nav_bar_style.css">
-    <link rel="stylesheet" type="text/css" href="css/home_style.css">
-    <link rel="stylesheet" type="text/css" href="css/sign_style.css">
-    <link rel="stylesheet" type="text/css" href="css/display_flex_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/font_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/icon_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/nav_bar_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/home_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/display_flex_style.css">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/header_style.css">
-    <link rel="stylesheet" type="text/css" href="css/recipe_style.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/recipe_style.css">
+    <script defer src="/js/script.js"></script>
     <title>Home</title>
 </head>
 
@@ -31,7 +33,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home"><img src="img/logo-white-green.png"
+                    <a class="padding-zero margin-zero hover" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -40,13 +42,13 @@
                     </button>
                 </div>
                 <span class="center">
-                    <div class="collapse navbar-collapse center" id="navbarContent" style="">
+                    <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="img/icon-dark-mode-black.png">
+                                <img src="/img/icon-dark-mode-black.png" class="hover">
                             </li>
                         </ul>
                     </div>
@@ -60,14 +62,14 @@
                 <form action="">
                     <input class="width-100" type="text" name="" id="" class="box"
                         placeholder="Pesquisar em suas receitas">
-                    <a href=""><img src="/img/filter-icon.png" alt=""></a>
+                    <a href=""><img src="/img/filter-icon.png" class="hover"></a>
                 </form>
 
                 <div class="box profile">
-                    <img src="/img/maria-c.jpg" class="profile-img">
+                    <img src="<%= this_user.image %>" class="profile-img">
                     <div class="profile-text">
                         <div class="profile-text">
-                            <span class="font chocolate-brown superbold">Maria Carolina</span>
+                            <span class="font chocolate-brown superbold"><%= this_user.name %></span>
                             <span class="font green small">1 receitas</span>
                         </div>
                         <div class="profile-text">
@@ -75,17 +77,17 @@
                                 <img src="/img/people-icon.png">
                                 <span class="font chocolate-brown small">503 seguidores</span>
                             </div>
-                            <button class="button small bold">Visualizar</button>
+                            <button class="button small bold hover">Visualizar</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="box flex-row gap-50">
-                    <div class="flex-column center">
+                    <div class="flex-column center hover">
                         <img src="/img/calendar-icon.png" alt="">
                         <a class="font chocolate-brown small bold" href="">Calendário</a>
                     </div>
-                    <div class="flex-column center">
+                    <div class="flex-column center hover">
                         <img src="/img/users-icon.png" alt="">
                         <a class="font chocolate-brown small bold" href="">Comunidade</a>
                     </div>
@@ -94,10 +96,10 @@
                 <div class="box gap">
                     <div class="date-header">
                         <span class="font chocolate-brown superbold small">Hoje - 01/04</span>
-                        <a href=""><img src="/img/eye-icon.png" alt=""></a>
+                        <a href=""><img src="/img/eye-icon.png" class="hover"></a>
                     </div>
                     <div class="sec">
-                        <div class="meal font small white bold width-100">Café da manhã</div>
+                        <div class="meal font small white bold width-100 smallerhover">Café da manhã</div>
                         <div class="recipes-link">
                             <a href="" class="font small chocolate-brown bold width-100">Pão de queijo</a>
                         </div>
@@ -111,7 +113,7 @@
                 </div>
             </aside>
             <article>
-                <div class="recipe box">
+                <div class="recipe box hover smallerhover">
                     <img class="recipe-img"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMW9td0rU1cZ5IXysJhQ4N_Vv54UexXeFuHunmhm2JfLAaYkR">
                     <div class="recipe-text">
@@ -142,7 +144,7 @@
             </article>
         </div>
         <div class="button-more">
-            <a href=""><img src="/img/plus-icon.png" alt=""></a>
+            <a href=""><img class="hover" src="/img/plus-icon.png"></a>
         </div>
     </main>
 </body>
