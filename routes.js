@@ -54,7 +54,8 @@ route.get('/edit-profile', edit_profile.pagEditProfileGet);
 
 route.get('/comunity', comunity.pagComunityGet);
 
-route.get('/add-recipe', add_recipe.pagAddRecipeGet);
+route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
+route.post('/:username/add-recipe', add_recipe.pagAddRecipePost);
 
 
 

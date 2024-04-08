@@ -1,5 +1,52 @@
+const user = require('../model/Users');
+const recipe = require('../model/Recipes');
+
 module.exports = {
     async pagAddRecipeGet(req, res) {
-        res.render('../views/add_recipe');
+
+        const parametro = req.params.username;
+
+        const this_user = await user.findOne({
+            where: {
+                username: parametro
+            },
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+        });
+
+        res.render('../views/add_recipe', {this_user});
+    },
+    async pagAddRecipePost(req, res) {
+
+        const parametro = req.params.username;
+
+        console.log(parametro);
+
+        const this_user = await user.findOne({
+            where: {
+                username: parametro
+            },
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+        });
+
+        let new_image;
+
+        if (req.file) {
+            new_image = '/img/' + req.file.filename;
+        } else {
+            new_image = '/img/' + 'no-img.jpg';
+        }
+
+        await recipe.create({
+            name: req.body.recipe_name,
+            duration: req.body.recipe_duration,
+            portions: req.body.recipe_portions,
+            status: 1,
+            description: req.body.recipe_description,
+            image: new_image,
+            user_id: this_user.id_user,
+            favorite: 0
+        });
+
+        return res.redirect(`/home/${this_user.username}`);
     }
 }
