@@ -113,38 +113,32 @@
                 </div>
             </aside>
             <article>
-                <div class="recipe box hover smallerhover">
-                    <img class="recipe-img"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMW9td0rU1cZ5IXysJhQ4N_Vv54UexXeFuHunmhm2JfLAaYkR">
-                    <div class="recipe-text">
-                        <span class="chocolate-brown superbold">Pizza de Queijo</span>
-                        <div class="recipe-info">
-                            <div class="icon-info">
-                                <img src="/img/icon-clock-green.png" alt="clock">
-                                <span class="font small green">1h30min</span>
+                <% user_recipes.forEach(recipe => { %>
+                    <div class="recipe box hover smallerhover">
+                        <img class="recipe-img" src="<%= recipe.image %>">
+                        <div class="recipe-text">
+                            <span class="chocolate-brown superbold"><%= recipe.title %></span>
+                            <div class="recipe-info">
+                                <div class="icon-info">
+                                    <img src="/img/icon-clock-green.png" alt="clock">
+                                    <span class="font small green"><%= recipe.duration %></span>
+                                </div>
+                                <div class="icon-info">
+                                    <img src="/img/icon-portions-green.png" alt="meal">
+                                    <span class="font small green"><%= recipe.portions %> porções</span>
+                                </div>
                             </div>
-                            <div class="icon-info">
-                                <img src="/img/icon-portions-green.png" alt="meal">
-                                <span class="font small green">2 porções</span>
+
+                            <div class="favorite">
+                                <button class="hover"><img src="/img/star-icon.png" alt=""></button>
                             </div>
-                        </div>
-                        <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                            <div class="meal font supersmall white bold width center">Café da manhã</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                        </div>
-                        <div class="favorite">
-                            <button><img src="/img/star-icon.png" alt=""></button>
                         </div>
                     </div>
-                </div>
-                
+                <% }) %>
             </article>
         </div>
         <div class="button-more">
-            <a href=""><img class="hover" src="/img/plus-icon.png"></a>
+            <a href="/add-recipe"><img class="hover" src="/img/plus-icon.png"></a>
         </div>
     </main>
 </body>
