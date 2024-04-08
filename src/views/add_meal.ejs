@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
     <link rel="stylesheet" type="text/css" href="/css/edit_type_style.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
+
     <title>Adicionar Refeição</title>
 </head>
 
@@ -30,7 +30,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home"><img src="/img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero" href="/home"><img src="/img/logo-white-green.png"
+                            class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -41,8 +42,7 @@
                     <div class="collapse navbar-collapse center" id="navbarContent" style="">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration"
-                                    href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img src="/img/icon-dark-mode-black.png">
@@ -57,25 +57,27 @@
         <div class="edit-recipe-type">
             <div class="box gap-40">
                 <h2 class="font chocolate-brown bold big">Adicionar refeição</h2>
-                <div class="recipe-type-name">
-                    <input id="color-box" type="text" placeholder="Nome da refeição">
-                </div>
-                <div class="flex-row type-select-color gap-30">
-                    <div class="color-select flex-column">
-                        <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
-                        <input id="color-selector-background" type="color" value="#C08332">
+                <form  action="/<%= this_user.username %>/add-meal/" method="post">
+                    <div class="recipe-type-name">
+                        <input name="meal_name" id="color-box" type="text" placeholder="Nome da refeição">
                     </div>
-                    <div class="color-select flex-column">
-                        <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
-                        <input id="color-selector-font" type="color" value="#ffffff">
+                    <div class="flex-row type-select-color gap-30">
+                        <div class="color-select flex-column">
+                            <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
+                            <input name="meal_bg_color" id="color-selector-background" type="color" value="#C08332">
+                        </div>
+                        <div class="color-select flex-column">
+                            <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
+                            <input name="meal_txt_color" id="color-selector-font" type="color" value="#ffffff">
+                        </div>
                     </div>
-                </div>
-                <div class="time-select">
-                    <input type="time" >
-                </div>
-                <div class="save-button">
-                    <button>Salvar</button>
-                </div>
+                    <div class="time-select">
+                        <input name="meal_time" type="time">
+                    </div>
+                    <div class="save-button">
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </main>

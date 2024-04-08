@@ -1,5 +1,5 @@
 const user = require('../model/Users');
-const recipe = require('../model/Types');
+const recipe_type = require('../model/Types');
 
 module.exports = {
     async pagAddRecipeTypeGet(req, res) {
@@ -28,10 +28,10 @@ module.exports = {
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
         });
 
-        await recipe.create({
+        await recipe_type.create({
             name: req.body.recipe_type_name,
-            bg_color: req.body.recipe_type_bg_color.value,
-            txt_color: req.body.recipe_type_txt_color.value,
+            bg_color: req.body.recipe_type_bg_color,
+            txt_color: req.body.recipe_type_txt_color,
             user_id: this_user.id_user,
         });
 
