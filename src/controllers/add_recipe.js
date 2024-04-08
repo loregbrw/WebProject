@@ -1,3 +1,5 @@
+const multer = require('multer');
+
 const user = require('../model/Users');
 const recipe = require('../model/Recipes');
 
@@ -30,8 +32,12 @@ module.exports = {
 
         let new_image;
 
-        if (req.file) {
-            new_image = '/img/' + req.file.filename;
+        console.log(req.file);
+        console.log(req.body.recipe_image);
+
+        if (req.body.recipe_image) {
+            new_image = '/img/' + req.body.recipe_image;
+            console.log(new_image);
         } else {
             new_image = '/img/' + 'no-img.jpg';
         }
