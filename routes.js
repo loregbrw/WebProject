@@ -20,6 +20,9 @@ const add_recipe = require('./src/controllers/add_recipe');
 const add_recipe_type = require('./src/controllers/add_recipe_type');
 const add_meal = require('./src/controllers/add_meal');
 
+const multer = require('multer');
+const multerConfig = require('./src/config/multer');
+
 route.get('/', index.pagIndexGet);
 
 route.get('/login', login.pagLoginGet);
@@ -56,7 +59,7 @@ route.get('/edit-profile', edit_profile.pagEditProfileGet);
 route.get('/comunity', comunity.pagComunityGet);
 
 route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
-route.post('/:username/add-recipe', add_recipe.pagAddRecipePost);
+route.post('/:username/add-recipe', multer({ storage: multerConfig }).single('recipe_image'), add_recipe.pagAddRecipePost);
 
 route.get('/add-recipe-type', add_recipe_type.pagAddRecipeTypeGet);
 
