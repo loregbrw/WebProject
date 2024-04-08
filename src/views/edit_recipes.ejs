@@ -33,7 +33,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero" href="/home"><img src="/img/logo-white-green.png"
+                            class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -80,8 +81,8 @@
                         <img class="icon" id="post_view_setting" src="img/icon-post-view-1-bigger.png"
                             alt="Vizualização do post">
                     </div>
-                    <div class="recipe-types flex-row">
-                        <div class="flex-wrap">
+                    <div class="recipe-types">
+                        <div class="flex-wrap flex-row space-between">
                             <div class="recipe-type-box">
                                 <span class="small-box box-green white">Salgado</span>
                                 <span class="small-box box-yellow white">Quente</span>
@@ -89,7 +90,6 @@
                                 <span class="small-box box-macchiato white">Almoço</span>
                             </div>
                             <div class="recipe-type-add">
-                                <img class="icon" src="img/icon-delete.png">
                                 <img class="icon" src="img/plus-icon.png" data-bs-toggle="modal"
                                     data-bs-target="#types_meals">
                             </div>
@@ -166,11 +166,12 @@
                         <img class="icon" src="img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
-                    <div class="font chocolate-brown flex-column gap-20 " id="ingredients">
-                        <input type="text" placeholder="Ingrediente 1" maxlength="255" required>
-                        <input type="text" placeholder="Ingrediente 2" maxlength="255" required>
-                        <input type="text" placeholder="Ingrediente 3" maxlength="255" required>
-                        <input type="text" placeholder="Ingrediente 4" maxlength="255" required>
+                    <div class="font chocolate-brown flex-column gap-20 width-100 " id="ingredients">
+                        <div class="flex-row gap-20">
+                            <input class= "width-50px" type="number" placeholder="1" min="1" required>
+                            <input class= "width-70" type="text" placeholder="Ingrediente" maxlength="255" required>
+                        </div>
+                        
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
@@ -184,11 +185,11 @@
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="steps">
-                        <textarea name="" id=""
-                            required>Passo 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium magni odio aliquid assumenda iurhtrhrytrye repudiandae dignissimos, sint, vitae obcaecati voluptate corrupti quas soluta, unde eveniet excepturi debitis sed quo rerum?</textarea>
-                        <textarea name="" id="" required>Passo 2</textarea>
-                        <textarea name="" id="" required>Passo 3</textarea>
-                        <textarea name="" id="" required>Passo 4</textarea>
+                        <div class="flex-row gap-20">
+                            <input class= "width-50px" type="number" placeholder="1" min="1" required>
+                            <textarea name="" id=""
+                                required>Passo 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium magni odio aliquid assumenda iurhtrhrytrye repudiandae dignissimos, sint, vitae obcaecati voluptate corrupti quas soluta, unde eveniet excepturi debitis sed quo rerum?</textarea>
+                        </div>
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
