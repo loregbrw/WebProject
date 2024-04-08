@@ -33,7 +33,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero" href="/home"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -81,7 +81,6 @@
 
                         </div>
                         <div class="recipe-type-add">
-                            <img class="icon" src="img/icon-delete.png">
                             <img class="icon" data-bs-toggle="modal" data-bs-target="#types_meals" src="img/plus-icon.png">
                         </div>
                         <div class="modal fade" id="types_meals" tabindex="-1" aria-hidden="true">
@@ -150,14 +149,17 @@
                     </div>
                 </div>
             </div>
-            <div class="view-recipes-bottom flex-row">
+            <div class="edit-recipes-bottom gap-40">
                 <div class="view-recipes-ingredients flex-column gap-20">
                     <div class="recipes-ingredients-title">
                         <img class="icon" src="img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="ingredients">
-                        <input type="text" placeholder="Ingrediente">
+                        <div class="flex-row gap-20">
+                            <input class= "width-50px" type="number" placeholder="1" min="1" required>
+                            <input class= "width-70" type="text" placeholder="Ingrediente" maxlength="255" required>
+                        </div>
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
@@ -171,7 +173,11 @@
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="steps">
-                        <textarea placeholder="Passo"></textarea>
+                        <div class="flex-row gap-20">
+                            <input class= "width-50px" type="number" placeholder="1" min="1" required>
+                            <textarea name="" id=""
+                                required>Passo</textarea>
+                        </div>
                     </div>
                     <div>
                         <img class="icon" src="img/icon-delete.png">
