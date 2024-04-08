@@ -20,8 +20,6 @@
     <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
     <link rel="stylesheet" type="text/css" href="/css/profile_style.css">
     <link rel="stylesheet" type="text/css" href="/css/display_flex_style.css">
-
-
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/profile_style.css">
     <link rel="stylesheet" type="text/css" href="/css/header_style.css">
@@ -49,7 +47,7 @@
                                 <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="img/icon-dark-mode-black.png">
+                                <img src="/img/icon-dark-mode-black.png">
                             </li>
                         </ul>
                     </div>
@@ -59,19 +57,18 @@
     </header>
     <main>
         <div class="box width-100 padding-zero">
-            <img class="main-img" src="/img/maria-c.jpg">
+            <img class="main-img" src="<%= this_user.image %>">
             <div>
                 <div class="flex-column">
-                    <span class="font chocolate-brown superbold very-big">Maria Carolina Bevervanso</span>
-                    <span class="font yellow">@Mariasina</span>
+                    <span class="font chocolate-brown superbold very-big"><%= this_user.name %></span>
+                    <span class="font yellow">@<%= this_user.username %></span>
                 </div>
 
-                <span class="chocolate-brown font bold">Programadora iniciante buscando novas oportunidades e projetos
-                    para criar coisas novas.</span>
+                <span class="chocolate-brown font bold"><%= this_user.description %></span>
 
                 <div class="flex-column">
-                    <span class="font green ">Idade: 19 anos</span>
-                    <span class="font green ">E-mail: carolbeveer@gmail.com</span>
+                    <span class="font green ">Idade: <%= this_user.birthdate%></span>
+                    <span class="font green ">E-mail: <%= this_user.email %></span>
                 </div>
 
                 <div class="gap-20">
