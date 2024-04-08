@@ -3,10 +3,9 @@
 }
 
 .profile-box {
-    height: 100vh;
     max-height: fit-content;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     flex-wrap:wrap;
 
     min-width:fit-content;
