@@ -43,7 +43,7 @@ route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 
 route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 
-route.get('/profile/:username', profile.pagProfileGet);
+route.get('/:username/profile/', profile.pagProfileGet);
 
 route.get('/calendar', calendar.pagCalendarGet);
 
@@ -58,8 +58,9 @@ route.get('/comunity', comunity.pagComunityGet);
 route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
 route.post('/:username/add-recipe', add_recipe.pagAddRecipePost);
 
-route.get('/add-recipe-type', add_recipe_type.pagAddRecipeTypeGet);
+route.get('/:username/add-recipe-type', add_recipe_type.pagAddRecipeTypeGet);
+route.post('/:username/add-recipe-type', add_recipe_type.pagAddRecipeTypePost);
 
-route.get('/add-meal', add_meal.pagAddMealGet);
+route.get('/:username/add-meal', add_meal.pagAddMealGet);
 
 module.exports = route;
