@@ -32,6 +32,6 @@ module.exports = {
             return res.status(400).json({ error: 'Senha incorreta.' });
         }
     
-        return res.redirect(`/home/${existingUser.username}`);
+        return res.redirect(`/${existingUser.username}/home`);
     }
 }

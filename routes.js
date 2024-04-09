@@ -46,7 +46,7 @@ route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 
 route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 
-route.get('/:username/profile/', profile.pagProfileGet);
+route.get('/:username/profile', profile.pagProfileGet);
 
 route.get('/calendar', calendar.pagCalendarGet);
 

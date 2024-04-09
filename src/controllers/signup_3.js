@@ -17,6 +17,6 @@ module.exports = {
             image: "/img/user-img.jpeg"
         });
 
-        return res.redirect(`/home/${username}`);
+        return res.redirect(`/${username}/home`);
     }
 }
