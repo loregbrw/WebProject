@@ -73,8 +73,8 @@
 
                 <div class="gap-20">
                     <div class="flex-row gap-10 width-100 flex-start">
-                        <img class="icon-font fit-contain icon-color" src="/img/people-icon.png">
-                        <span class="font chocolate-brown width-100">503 seguidores</span>
+                        <img class="icon-font fit-contain" src="/img/people-icon.png">
+                        <span class="font chocolate-brown width-100"><%= user_followers %> seguidores</span>
                     </div>
                     <a href="/<%= this_user.username %>/edit-profile"><button class="width-100 smallerhover">Editar</button></a>
                 </div>
@@ -110,7 +110,7 @@
                         <img src="/img/trophy-icon.png" class="trophy">
                         <div class="flex-column height-fit">
                             <span class="font bold small">Sua receita mais consumida no último mês</span>
-                            <a href="" class="smallerhover font bold yellow small">Pizza de queijo</a>
+                            <a href="" class="smallerhover font bold yellow small"><%= most_recipe %></a>
                         </div>
                     </div>
                     <div class="flex-row gap-10 flex-start height-min width-100">

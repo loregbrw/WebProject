@@ -68,12 +68,12 @@
                     <div class="profile-text">
                         <div class="profile-text">
                             <span class="font chocolate-brown superbold"><%= this_user.name %></span>
-                            <span class="font green small">1 receitas</span>
+                            <span class="font green small"><%= count_recipes %> receitas</span>
                         </div>
                         <div class="profile-text">
                             <div class="followers">
-                                <img class="icon-color" src="/img/people-icon.png">
-                                <span class="font chocolate-brown small">503 seguidores</span>
+                                <img src="/img/people-icon.png">
+                                <span class="font chocolate-brown small"><%= user_followers %> seguidores</span>
                             </div>
                             <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/profile"><button class="button small bold hover width-100">Visualizar</button></a>
                         </div>
@@ -81,10 +81,10 @@
                 </div>
 
                 <div class="box flex-row gap-50">
-                    <div class="flex-column center hover">
-                        <img class="icon-color" src="/img/calendar-icon.png" alt="">
-                        <a class="font chocolate-brown small bold" href="">Calendário</a>
-                    </div>
+                    <a class="flex-column center hover" href="/<%= this_user.username %>/calendar">
+                        <img src="/img/calendar-icon.png" alt="">
+                        <span class="font chocolate-brown small bold">Calendário</span>
+                    </a>
                     <div class="flex-column center hover">
                         <img class="icon-color" src="/img/users-icon.png" alt="">
                         <a class="font chocolate-brown small bold" href="">Comunidade</a>
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="favorite">
-                                <button class="hover"><img class="icon-color" src="/img/star-icon.png" alt=""></button>
+                                <button class="hover"><img src="/img/star-icon.png" alt=""></button>
                             </div>
                         </div>
                     </div>
