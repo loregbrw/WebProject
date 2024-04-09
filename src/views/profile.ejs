@@ -85,15 +85,21 @@
             <div class="box third gap-20 space-between">
                 <span class="font chocolate-brown superbold big width-100">Meus tipos de receitas</span>
                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                    <div class="meal font supersmall white bold half center">Café da manhã</div>
+                    <% user_types.forEach(type => { %>
+                        <div class="meal font bold small" style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;">
+                            <span><%= type.name %></span>
+                        </div>
+                    <% }) %>
                 </div>
                 <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/add-recipe-type/"><button class="width-100 bg-yellow">Adicionar</button></a>
             </div>
             <div class="box third gap-20 space-between">
                 <span class="font chocolate-brown superbold big width-100">Minhas refeições</span>
                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                    <% user_types.forEach(type => { %>
-                        <span><%= type.name %>"></span>
+                    <% user_meals.forEach(meal => { %>
+                        <div class="meal font bold small" style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;">
+                            <span><%= meal.name %></span>
+                        </div>
                     <% }) %>
                 </div>
                 <a class="white text-decoration-none width-100 " href="/<%= this_user.username %>/add-meal/"><button class="width-100 bg-yellow">Adicionar</button></a>

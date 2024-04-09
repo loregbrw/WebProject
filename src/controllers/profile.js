@@ -1,5 +1,6 @@
 const user = require('../model/Users');
-const recipe = require('../model/Recipes');
+const type = require('../model/Types');
+const meal = require('../model/Meals');
 
 module.exports = {
     async pagProfileGet(req, res) {
@@ -12,12 +13,18 @@ module.exports = {
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
         });
 
-        const user_recipes = await recipe.findAll({
+        const user_types = await type.findAll({
             where: {
                 user_id: this_user.id_user
             }
         });
 
-        res.render('../views/profile', { this_user, user_recipes });
+        const user_meals = await meal.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        res.render('../views/profile', { this_user, user_types, user_meals });
     }
 }
