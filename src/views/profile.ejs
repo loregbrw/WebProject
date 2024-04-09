@@ -32,7 +32,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -76,7 +76,7 @@
                         <img class="icon-font fit-contain" src="/img/people-icon.png">
                         <span class="font chocolate-brown width-100">503 seguidores</span>
                     </div>
-                    <button class="width-100">Editar</button>
+                    <a href="/<%= this_user.username %>/edit-profile"><button class="width-100">Editar</button></a>
                 </div>
             </div>
         </div>

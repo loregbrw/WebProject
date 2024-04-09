@@ -37,8 +37,8 @@ route.post('/signup-2', signup_2.pagSignup2Post);
 route.get('/signup-3', signup_3.pagSignup3Get);
 route.post('/signup-3', signup_3.pagSignup3Post);
 
-route.get('/home/:username', home.pagHomeGet);
-route.post('/home/:username', home.pagHomeGet);
+route.get('/:username/home', home.pagHomeGet);
+route.post('/:username/home', home.pagHomeGet);
 
 route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 
@@ -54,7 +54,7 @@ route.get('/edit-meal', edit_meal.pagEditMealGet);
 
 route.get('/day', day.pagDayGet);
 
-route.get('/edit-profile', edit_profile.pagEditProfileGet);
+route.get('/:username/edit-profile', edit_profile.pagEditProfileGet);
 
 route.get('/comunity', comunity.pagComunityGet);
 
