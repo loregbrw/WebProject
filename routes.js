@@ -46,13 +46,13 @@ route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 
 route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 
-route.get('/:username/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
+route.get('/:username/edit-recipe-type/:id_type', edit_recipe_type.pagEditRecipeTypeGet);
 
 route.get('/:username/profile', profile.pagProfileGet);
 
 route.get('/:username/calendar', calendar.pagCalendarGet);
 
-route.get('/:username/edit-meal', edit_meal.pagEditMealGet);
+route.get('/:username/edit-meal/:id_meal', edit_meal.pagEditMealGet);
 
 route.get('/day', day.pagDayGet);
 
