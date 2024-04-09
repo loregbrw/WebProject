@@ -14,7 +14,8 @@ module.exports = {
             password: password,
             birthdate: birthdate,
             username: username,
-            image: "/img/user-img.jpeg"
+            image: "/img/user-img.jpeg",
+            description: "Escreva sobre você..."
         });
 
         return res.redirect(`/${username}/home`);

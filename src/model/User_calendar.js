@@ -14,7 +14,7 @@ const user_calendar = database.define('User_calendar', {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: Users,
+            model: user,
             key: 'id_user'
         }
     },

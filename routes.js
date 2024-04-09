@@ -50,7 +50,7 @@ route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 
 route.get('/:username/profile', profile.pagProfileGet);
 
-route.get('/calendar', calendar.pagCalendarGet);
+route.get('/:username/calendar', calendar.pagCalendarGet);
 
 route.get('/edit-meal', edit_meal.pagEditMealGet);
 
