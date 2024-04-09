@@ -2,6 +2,16 @@ const user = require('../model/Users');
 const recipe = require('../model/Recipes');
 const follows = require('../model/Follows');
 
+function getToday() {
+    return new Date();
+}
+
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    return `${day}/${month}`;
+}
+
 module.exports = {
     async pagHomeGet(req, res) {
         const parametro = req.params.username;
@@ -12,6 +22,9 @@ module.exports = {
             },
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
         });
+
+        today = getToday();
+        format_today = formatDate(today);
 
         const user_recipes = await recipe.findAll({
             where: {
@@ -31,6 +44,6 @@ module.exports = {
             }
         });
 
-        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes });
+        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today, format_today });
     }
 }

@@ -32,13 +32,13 @@ module.exports = {
 
         });
 
-        let new_image;
+       
 
         console.log(req.file);
         console.log(req.body.recipe_image);
 
         if (req.file) {
-            new_image = '/img/' + req.file.filename;;
+            new_image = '/img/' + req.file.filename;
             console.log(new_image);
         } else {
             new_image = '/img/' + 'no-img.jpg';

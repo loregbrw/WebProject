@@ -32,6 +32,7 @@ module.exports = {
         });
 
         const today = getToday();
+        console.log(today);
         const month_num = getThisMonth(today);
         const month_name = getMonthName(month_num);
         const year = getThisYear(today);

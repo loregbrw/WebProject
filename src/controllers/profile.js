@@ -65,7 +65,7 @@ async function mostRecipe(user) {
         const recipe_name = await recipe.findByPk(most_recipe);
         return recipe_name;
     } else {
-        return "nenhuma receita";
+        return "Nenhuma receita";
     }
 }
 
