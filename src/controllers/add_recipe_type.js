@@ -9,7 +9,8 @@ module.exports = {
             where: {
                 username: parametro
             },
-            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
+
         });
 
         res.render('../views/add_recipe_type', {this_user});
@@ -25,7 +26,8 @@ module.exports = {
             where: {
                 username: parametro
             },
-            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
+
         });
 
         await recipe_type.create({

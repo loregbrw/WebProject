@@ -12,7 +12,8 @@ module.exports = {
             where: {
                 username: parametro
             },
-            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
+
         });
 
         res.render('../views/add_recipe', {this_user});
@@ -27,7 +28,8 @@ module.exports = {
             where: {
                 username: parametro
             },
-            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
+
         });
 
         let new_image;
@@ -53,6 +55,6 @@ module.exports = {
             favorite: 0
         });
 
-        return res.redirect(`/home/${this_user.username}`);
+        return res.redirect(`/${this_user.username}/home`);
     }
 }

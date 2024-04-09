@@ -46,6 +46,10 @@
     padding-right: 0;
 }
 
+.padding-3 {
+    padding: 3%;
+}
+
 /* height */
 
 .height-100 {
@@ -160,6 +164,10 @@
 }
 
 /* gap */
+
+.gap-0 {
+    gap: 0;
+}
 
 .gap-10{
     gap: 10px;

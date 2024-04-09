@@ -44,6 +44,12 @@ main {
     height: fit-content;
 }
 
+#profile form {
+    flex-direction: row;
+    height: max-content;
+    align-self: center;
+}
+
 
 @media (max-width: 991px) {
     #profile .box {
@@ -53,8 +59,15 @@ main {
         align-self: center;
     }
 
+    #profile form {
+        flex-direction: column;
+        height: max-content;
+        align-self: center;
+    }
+
     .main-img {
         width: 100%;
+        max-height: 40vh;
     }
 
     #profile > .box > div {

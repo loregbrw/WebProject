@@ -32,7 +32,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -41,13 +41,13 @@
                     </button>
                 </div>
                 <span class="center">
-                    <div class="collapse navbar-collapse center" id="navbarContent" style="">
+                    <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="/img/icon-dark-mode-black.png">
+                                <img src="/img/icon-dark-mode-black.png" class="hover">
                             </li>
                         </ul>
                     </div>
@@ -67,7 +67,7 @@
                 <span class="chocolate-brown font bold"><%= this_user.description %></span>
 
                 <div class="flex-column">
-                    <span class="font green ">Idade: <%= this_user.birthdate%></span>
+                    <span class="font green ">Idade: <%= this_user_age %> anos</span>
                     <span class="font green ">E-mail: <%= this_user.email %></span>
                 </div>
 
@@ -76,7 +76,7 @@
                         <img class="icon-font fit-contain" src="/img/people-icon.png">
                         <span class="font chocolate-brown width-100">503 seguidores</span>
                     </div>
-                    <a href="/<%= this_user.username %>/edit-profile"><button class="width-100">Editar</button></a>
+                    <a href="/<%= this_user.username %>/edit-profile"><button class="width-100 smallerhover">Editar</button></a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                         </div>
                     <% }) %>
                 </div>
-                <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/add-recipe-type/"><button class="width-100 bg-yellow">Adicionar</button></a>
+                <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/add-recipe-type/"><button class="smallerhover width-100 bg-yellow">Adicionar</button></a>
             </div>
             <div class="box third gap-20 space-between">
                 <span class="font chocolate-brown superbold big width-100">Minhas refeições</span>
@@ -102,7 +102,7 @@
                         </div>
                     <% }) %>
                 </div>
-                <a class="white text-decoration-none width-100 " href="/<%= this_user.username %>/add-meal/"><button class="width-100 bg-yellow">Adicionar</button></a>
+                <a class="white text-decoration-none width-100 " href="/<%= this_user.username %>/add-meal/"><button class="smallerhover width-100 bg-yellow">Adicionar</button></a>
             </div>
             <div class="box third flex-colum space-betweenn gap-10">
                 <div class="width-max height-100 center flex-column max-width">
@@ -110,21 +110,21 @@
                         <img src="/img/trophy-icon.png" class="trophy">
                         <div class="flex-column height-fit">
                             <span class="font bold small">Sua receita mais consumida no último mês</span>
-                            <a href="" class="font bold yellow small">Pizza de queijo</a>
+                            <a href="" class="smallerhover font bold yellow small">Pizza de queijo</a>
                         </div>
                     </div>
                     <div class="flex-row gap-10 flex-start height-min width-100">
                         <img src="/img/trophy-icon.png" class="trophy">
                         <div class="flex-column height-fit">
                             <span class="font bold small">Sua refeição mais consumida no último mês</span>
-                            <a href="" class="font bold yellow small">Pizza de queijo</a>
+                            <a href="" class="smallerhover font bold yellow small">Pizza de queijo</a>
                         </div>
                     </div>
                     <div class="flex-row gap-10 flex-start height-min width-100">
                         <img src="/img/trophy-icon.png" class="trophy">
                         <div class="flex-column height-fit">
                             <span class="font bold small">Seu tipo mais consumida no último mês</span>
-                            <a href="" class="font bold yellow small">Pizza de queijo</a>
+                            <a href="" class="smallerhover font bold yellow small">Pizza de queijo</a>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ module.exports = {
             where: {
                 username: parametro
             },
-            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image']
+            attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
         });
 
         const user_recipes = await recipe.findAll({
