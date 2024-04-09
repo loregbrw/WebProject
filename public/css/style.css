@@ -72,6 +72,14 @@
     height: min-content;
 }
 
+.height-vh {
+    height: 100vh;
+}
+
+.height-max{
+    max-height: fit-content;
+}
+
 /* width */
 
 .width-100 {
