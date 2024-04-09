@@ -19,8 +19,6 @@
     <link rel="stylesheet" type="text/css" href="/css/home_style.css">
     <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
     <link rel="stylesheet" type="text/css" href="/css/display_flex_style.css">
-
-
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header_style.css">
     <link rel="stylesheet" type="text/css" href="/css/recipe_style.css">
@@ -48,7 +46,7 @@
                                 <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="/img/icon-dark-mode-black.png" class="hover">
+                                <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
                             </li>
                         </ul>
                     </div>
@@ -62,7 +60,7 @@
                 <form action="">
                     <input class="width-100" type="text" name="" id="" class="box"
                         placeholder="Pesquisar em suas receitas">
-                    <a href=""><img src="/img/filter-icon.png" class="hover"></a>
+                    <a href=""><img src="/img/filter-icon.png" class="hover icon-color"></a>
                 </form>
 
                 <div class="box profile">
@@ -74,7 +72,7 @@
                         </div>
                         <div class="profile-text">
                             <div class="followers">
-                                <img src="/img/people-icon.png">
+                                <img class="icon-color" src="/img/people-icon.png">
                                 <span class="font chocolate-brown small">503 seguidores</span>
                             </div>
                             <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/profile"><button class="button small bold hover width-100">Visualizar</button></a>
@@ -84,11 +82,11 @@
 
                 <div class="box flex-row gap-50">
                     <div class="flex-column center hover">
-                        <img src="/img/calendar-icon.png" alt="">
+                        <img class="icon-color" src="/img/calendar-icon.png" alt="">
                         <a class="font chocolate-brown small bold" href="">Calendário</a>
                     </div>
                     <div class="flex-column center hover">
-                        <img src="/img/users-icon.png" alt="">
+                        <img class="icon-color" src="/img/users-icon.png" alt="">
                         <a class="font chocolate-brown small bold" href="">Comunidade</a>
                     </div>
                 </div>
@@ -96,7 +94,7 @@
                 <div class="box gap">
                     <div class="date-header">
                         <span class="font chocolate-brown superbold small">Hoje - 01/04</span>
-                        <a href=""><img src="/img/eye-icon.png" class="hover"></a>
+                        <a href=""><img class="icon-color" src="/img/eye-icon.png" class="hover"></a>
                     </div>
                     <div class="sec">
                         <div class="meal font small white bold width-100 smallerhover">Café da manhã</div>
@@ -130,7 +128,7 @@
                             </div>
 
                             <div class="favorite">
-                                <button class="hover"><img src="/img/star-icon.png" alt=""></button>
+                                <button class="hover"><img class="icon-color" src="/img/star-icon.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -141,6 +139,7 @@
             <a href="/<%= this_user.username %>/add-recipe"><img class="hover" src="/img/plus-icon.png"></a>
         </div>
     </main>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

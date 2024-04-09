@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="/css/sign_style.css">
     <link rel="stylesheet" type="text/css" href="/css/edit_type_style.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header_style.css">
+
     <title>Adicionar Tipo de Receita</title>
 </head>
 
@@ -30,7 +32,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero hover" href="/home"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -42,10 +44,10 @@
                     <div class="collapse navbar-collapse center" id="navbarContent" style="">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="hover font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="/img/icon-dark-mode-black.png">
+                                <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
                             </li>
                         </ul>
                     </div>
@@ -72,7 +74,7 @@
                             <input name="recipe_type_txt_color" id="color-selector-font" type="color" value="#ffffff">
                         </div>
                     </div>
-                    <div class="save-button">
+                    <div class="hover save-button">
                         <button type="submit">Salvar</button>
                     </div>
                 </form>
@@ -81,6 +83,7 @@
     </main>
 
     <script src="/js/select_color.js" defer></script>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

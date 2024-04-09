@@ -29,7 +29,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero hover" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -41,10 +41,10 @@
                     <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="hover font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="img/icon-dark-mode-black.png">
+                                <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
                             </li>
                         </ul>
                     </div>
@@ -56,17 +56,17 @@
         <div class="flex-end">
             <aside class="width-100">
                 <form action="">
-                    <img class="height-100" src="img/icon-friendgroup-bigger-brown.png">
-                    <img class="height-100" src="img/icon-globe.png">
+                    <img class="height-100 hover icon-color" src="/img/icon-friendgroup-bigger-brown.png">
+                    <img class="height-100 hover icon-color" src="/img/icon-globe.png">
                     <input class="width-100" type="text" name="" id="" class="box"
                         placeholder="Pesquisar em suas receitas">
-                    <a href=""><img class="height-100"  src="/img/filter-icon.png" alt=""></a>
+                    <a href=""><img class="height-100 hover icon-color"  src="/img/filter-icon.png" alt=""></a>
                 </form>
             </aside>
         </div>
         <div class="center width-100">
             <article class="flex-row gap-40">
-                <div class="recipe box">
+                <div class="recipe box hover">
                     <img class="recipe-img"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMW9td0rU1cZ5IXysJhQ4N_Vv54UexXeFuHunmhm2JfLAaYkR">
                     <div class="recipe-text">
@@ -88,16 +88,17 @@
                             <div class="meal font supersmall white bold width center">Almoço</div>
                         </div>
                         <div class="favorite">
-                            <button><img src="/img/star-icon.png" alt=""></button>
+                            <button><img class="icon-color" src="/img/star-icon.png" alt=""></button>
                         </div>
                     </div>
                 </div>
             </article>
         </div>
-        <div class="button-more">
+        <div class="button-more hover">
             <a href=""><img src="/img/plus-icon.png" alt=""></a>
         </div>
     </main>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

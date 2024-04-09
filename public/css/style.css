@@ -1,3 +1,24 @@
+:root {
+    --body-bg: #fafafa;
+    --body-color: #462404;
+    --box-bg-color: #fafafa;
+    --box-border-color: #5C5E22;
+    --icons-brightness: brightness(100%);
+    --icons-saturation: saturate(100%);
+}
+
+.dark-mode:root {
+    --body-bg: #161515;
+    --body-color: #DBCBBC;
+    --box-bg-color: #2B2727;
+    --box-border-color: #3E4018;
+    --icons-brightness: brightness(400%);
+    --icons-saturation: saturate(40%);
+}
+
+.icon-color {
+    filter: var(--icons-brightness) var(--icons-saturation);
+}
 
 * {
     margin: 0;

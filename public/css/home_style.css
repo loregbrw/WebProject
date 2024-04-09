@@ -1,5 +1,7 @@
 main {
     padding: 130px 5% 40px 5%;
+    background-color: var(--body-bg);
+    color: var(--body-color);
 
     display: flex;
     flex-direction: column;
@@ -88,10 +90,10 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    border: 2px solid #5C5E22;
+    border: 2px solid var(--box-border-color);
     padding: 10px;
     
-
+    background-color: var(--box-bg-color);
     overflow: hidden;
 }
 
