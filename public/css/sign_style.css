@@ -58,6 +58,9 @@ input {
     border: 2px solid #5C5E22;
     padding: 10px;
 
+    color: var(--body-color);
+    background-color: var(--box-bg-color);
+
     font-family: 'Figtree', sans-serif;
 }
 
@@ -69,6 +72,9 @@ textarea {
     border-radius: 7px;
     border: 2px solid #5C5E22;
     padding: 10px;
+
+    color: var(--body-color);
+    background-color: var(--box-bg-color);
 
     text-align: justify;
     font-family: 'Figtree', sans-serif;

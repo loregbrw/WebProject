@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="/css/display_flex_style.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/profile_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header_style.css">
 
     <title>Editar Perfil</title>
 </head>
@@ -31,7 +32,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/<%= this_user.username %>/home"><img
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img
                             src="/img/logo-white-green.png" class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -43,10 +44,10 @@
                     <div class="collapse navbar-collapse center" id="navbarContent" style="">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="img/icon-dark-mode-black.png">
+                                <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
                             </li>
                         </ul>
                     </div>
@@ -63,12 +64,13 @@
                     <textarea class="font small" name="user_description"><%= this_user.description %></textarea>
                     <input type="email" value="<%= this_user.email %>" name="user_email" required>
                     <input type="date" value="<%= this_user.birthdate %>" name="user_birthdate" required>
-                    <button class="width-100" type="submit">Editar</button>
+                    <button class="width-100 hover" type="submit">Editar</button>
                 </div>
 
             </form>
         </div>
     </main>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

@@ -50,6 +50,10 @@
     color: #462404;
 }
 
+main .chocolate-brown {
+    color: var(--body-color);
+}
+
 .info {
     text-decoration: none;
     color: gray;

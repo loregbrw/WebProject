@@ -46,20 +46,20 @@ route.get('/view-recipes', view_recipes.pagViewRecipesGet);
 
 route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 
-route.get('/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
+route.get('/:username/edit-recipe-type', edit_recipe_type.pagEditRecipeTypeGet);
 
 route.get('/:username/profile', profile.pagProfileGet);
 
 route.get('/:username/calendar', calendar.pagCalendarGet);
 
-route.get('/edit-meal', edit_meal.pagEditMealGet);
+route.get('/:username/edit-meal', edit_meal.pagEditMealGet);
 
 route.get('/day', day.pagDayGet);
 
 route.get('/:username/edit-profile', edit_profile.pagEditProfileGet);
 route.post('/:username/edit-profile', edit_profile.pagEditProfilePost);
 
-route.get('/comunity', comunity.pagComunityGet);
+route.get('/:username/comunity', comunity.pagComunityGet);
 
 route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
 route.post('/:username/add-recipe', multer({ storage: multerConfig }).single('recipe_image'), add_recipe.pagAddRecipePost);
