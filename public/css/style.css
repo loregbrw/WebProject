@@ -144,6 +144,9 @@
 .width-max {
     width: max-content;
 }
+.width-fit {
+    width: fit-content;
+}
 
 .third {
     width: 32%;

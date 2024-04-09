@@ -5,6 +5,8 @@
     width: 100%;
     height: fit-content;
 
+    z-index: 100;
+
     padding: 1% 2%;
 
     box-shadow: 0 5px 5px rgba(70, 36, 4, 0.3);

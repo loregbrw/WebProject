@@ -25,11 +25,24 @@ module.exports = {
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
         });
 
+        let new_image;
+
+        console.log(req.file);
+        console.log(req.body.recipe_image);
+
+        if (req.file) {
+            new_image = '/img/' + req.file.filename;
+            console.log(new_image);
+        } else {
+            new_image = this_user.image;
+        }
+
         await this_user.update({
             name: data.user_name,
             description: data.user_description,
             email: data.user_email,
             birthdate: data.user_birthdate,
+            image: new_image
         });
 
         return res.redirect(`/${this_user.username}/profile`);

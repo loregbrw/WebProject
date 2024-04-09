@@ -57,8 +57,11 @@
     </header>
     <main class="min-100vh gap-30" id="profile">
         <div class="box edit-profile width-100 padding-zero">
-            <form action="/<%= this_user.username %>/edit-profile" method="post" class="width-100 gap-0">
-                <img class="main-img" src="<%= this_user.image %>">
+            <form action="/<%= this_user.username %>/edit-profile" method="post" enctype="multipart/form-data" class="width-100 gap-0">
+                <div class="width-fit">
+                    <img class="main-img" id="imgFoto" src="<%= this_user.image %>">
+                    <input type="file" id="flImage" name="user_image" id="foto" accept="image/*" placeholder="Teste" hidden>
+                </div>
                 <div class="flex-column gap-20 width-100 padding-3">
                     <input class="font small" type="text" name="user_name" value="<%= this_user.name %>" required>
                     <textarea class="font small" name="user_description"><%= this_user.description %></textarea>
@@ -70,6 +73,8 @@
             </form>
         </div>
     </main>
+    <script src="/js/add_photo.js" defer></script>
+    <script src="/js/add_recipe_information.js" defer></script>
     <script src="/js/dark_mode.js" defer></script>
 </body>
 
