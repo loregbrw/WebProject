@@ -86,8 +86,9 @@
                 <span class="font chocolate-brown superbold big width-100">Meus tipos de receitas</span>
                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
                     <% user_types.forEach(type => { %>
-                        <div>
-                            <a style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" class="meal font bold small text-decoration-none" href=""><%= type.name %></a>
+                        <div class="hover">
+                            <a style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" class="meal font bold small text-decoration-none" 
+                                href="/<%= this_user.username %>/edit-recipe-type/<%= type.id_type %>"><%= type.name %></a>
                         </div>
                     <% }) %>
                 </div>
@@ -97,8 +98,9 @@
                 <span class="font chocolate-brown superbold big width-100">Minhas refeições</span>
                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
                     <% user_meals.forEach(meal => { %>
-                        <div>
-                            <a style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" class="meal font bold small text-decoration-none"><%= meal.name %></a>
+                        <div class="hover">
+                            <a style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" class="meal font bold small text-decoration-none"
+                                href="/<%= this_user.username %>/edit-meal/<%= meal.id_meal %>"><%= meal.name %></a>
                         </div>
                     <% }) %>
                 </div>

@@ -1,4 +1,5 @@
 const user = require('../model/Users');
+const type = require('../model/Types');
 
 module.exports = {
     async pagEditRecipeTypeGet(req, res) {
@@ -12,6 +13,12 @@ module.exports = {
 
         });
 
-        res.render('../views/edit_recipe_type', {this_user});
+        const user_types = await type.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        res.render('../views/edit_recipe_type', {this_user, user_types});
     }
 }
