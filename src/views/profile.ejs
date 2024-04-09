@@ -92,9 +92,9 @@
             <div class="box third gap-20 space-between">
                 <span class="font chocolate-brown superbold big width-100">Minhas refeições</span>
                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                    <div class="meal font supersmall white bold half center">Café da manhã</div>
-                    <div class="meal font supersmall white bold half center">Café da manhã</div>
-                    <div class="meal font supersmall white bold half center">Café da manhã</div>
+                    <% user_types.forEach(type => { %>
+                        <span><%= type.name %>"></span>
+                    <% }) %>
                 </div>
                 <a class="white text-decoration-none width-100 " href="/<%= this_user.username %>/add-meal/"><button class="width-100 bg-yellow">Adicionar</button></a>
             </div>
