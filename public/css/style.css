@@ -5,6 +5,7 @@
     --box-border-color: #5C5E22;
     --icons-brightness: brightness(100%);
     --icons-saturation: saturate(100%);
+    --icons-inversion: invert(0%);
     --day-off-color: #DBCBBC;
 }
 
@@ -15,11 +16,20 @@
     --box-border-color: #3E4018;
     --icons-brightness: brightness(400%);
     --icons-saturation: saturate(40%);
+    --icons-inversion: invert(100%);
     --day-off-color: #161515;
 }
 
 .icon-color {
     filter: var(--icons-brightness) var(--icons-saturation);
+}
+
+.icon-invert {
+    filter: var(--icons-inversion);
+}
+
+.modal-content {
+    background-color: var(--box-bg-color);
 }
 
 * {

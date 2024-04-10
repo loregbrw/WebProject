@@ -1,6 +1,7 @@
 const add_input = document.getElementById("add_input_button");
 const add_textarea = document.getElementById("add_textarea_button");
-const change_view_setting = document.getElementById("post_view_setting")
+const change_view_setting = document.getElementById("post_view_setting");
+const add_items = document.getElementById("add_items");
 
 let post_view_current = 1;
 
@@ -50,4 +51,32 @@ change_view_setting.addEventListener("click", function(){
     else{
         post_view_current ++;
     }
+});
+
+add_items.addEventListener("click", function(){
+
+    let selected_items = [];
+
+    console.log("click")
+
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach(function(checkbox) {
+        selected_items.push(checkbox.value);
+    });
+
+    const items_container = document.getElementById("items");
+
+    let ul = document.createElement("ul");
+    items_container.appendChild(ul);
+
+    selected_items.forEach(function(item) {
+        const new_item = document.createElement("span");
+        new_item.style = "background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
+        new_item.appendChild = "<%= type.name %>"
+
+        items_container.appendChild(new_item);
+    });
+
+    document.getElementById("types_meals").style.display = "none";
+    
 });

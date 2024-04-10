@@ -1,10 +1,13 @@
 const user = require('../model/Users');
 const recipe = require('../model/Recipes');
+const type = require('../model/Types');
+const meal = require('../model/Meals');
 
 module.exports = {
     async pagAddRecipeGet(req, res) {
 
         const parametro = req.params.username;
+        const parametro_types = req.params.id_type;
 
         const this_user = await user.findOne({
             where: {
@@ -14,7 +17,25 @@ module.exports = {
 
         });
 
-        res.render('../views/add_recipe', {this_user});
+        const this_type = await type.findOne({ 
+            where: {
+                id_type: parametro_types
+            }
+        });
+
+        const user_types = await type.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        const user_meals = await meal.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        res.render('../views/add_recipe', {this_user, this_type, user_types, user_meals});
     },
     async pagAddRecipePost(req, res) {
 
@@ -28,6 +49,12 @@ module.exports = {
             },
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
 
+        });
+
+        const user_types = await type.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
         });
 
        let new_image;

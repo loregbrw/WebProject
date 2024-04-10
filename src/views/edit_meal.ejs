@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="/css/edit_type_style.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header_style.css">
-    
+
     <title>Editar Refeição</title>
 </head>
 
@@ -31,7 +31,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero hover" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img
+                            src="/img/logo-white-green.png" class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -58,28 +59,30 @@
         <div class="edit-recipe-type">
             <div class="box gap-40">
                 <h2 class="font chocolate-brown bold big">Editar refeição</h2>
-                <div class="recipe-type-name">
-                    <input id="color-box" type="text" placeholder="Nome da refeição">
-                </div>
-                <div class="flex-row type-select-color gap-30">
-                    <div class="color-select flex-column">
-                        <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
-                        <input id="color-selector-background" type="color" value="#C08332">
+                <form action="/<%= this_user.username %>/edit-meal-<%= this_meal.id_meal %>" method="post">
+                    <div class="recipe-type-name">
+                        <input name="meal_name" id="color-box" type="text" placeholder="Nome da refeição" value="<%= this_meal.name %>" required>
                     </div>
-                    <div class="color-select flex-column">
-                        <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
-                        <input id="color-selector-font" type="color" value="#ffffff">
+                    <div class="flex-row type-select-color gap-30">
+                        <div class="color-select flex-column">
+                            <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
+                            <input name="meal_bg_color" id="color-selector-background" type="color" value="<%= this_meal.bg_color %>">
+                        </div>
+                        <div class="color-select flex-column">
+                            <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
+                            <input name="meal_txt_color" id="color-selector-font" type="color" value="<%= this_meal.txt_color %>">
+                        </div>
                     </div>
-                </div>
-                <div class="time-select">
-                    <input type="time" >
-                </div>
-                <div class="hover save-button">
-                    <button>Salvar</button>
-                </div>
-                <div class="hover flex-row delete-icon">
-                    <img class="icon icon-color" src="/img/icon-delete.png">
-                </div>
+                    <div class="time-select">
+                        <input name="meal_time" type="time" value="<%= this_meal.time %>" required>
+                    </div>
+                    <div class="hover save-button">
+                        <button>Salvar</button>
+                    </div>
+                    <div class="hover flex-row delete-icon">
+                        <img class="icon icon-color" src="/img/icon-delete.png">
+                    </div>
+                </form>
             </div>
         </div>
     </main>
