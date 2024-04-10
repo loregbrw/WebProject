@@ -61,19 +61,19 @@
 
             <div class="box gap-40">
                 <h2 class="font chocolate-brown bold big">Editar tipo de receita</h2>
-                <form action="/<%= this_user.username %>/edit-recipe-type/<%= user_types.id_type %>" method="post">
+                <form action="/<%= this_user.username %>/edit-recipe-type-<%= this_type.id_type %>" method="post">
                     <div class="recipe-type-name">
-                        <input id="color-box" type="text" placeholder="Nome do tipo de receita"
-                            value="<%= user_types.name %>">
+                        <input name="recipe_type_name" id="color-box" type="text" placeholder="Nome do tipo de receita"
+                            value="<%= this_type.name %>">
                     </div>
                     <div class="flex-row type-select-color gap-30">
                         <div class="color-select flex-column">
                             <h3 class="chocolate-brown font bold">Cor de fundo:</h3>
-                            <input id="color-selector-background" type="color" value="<%= user_types.bg_color %>">
+                            <input name="recipe_type_bg_color" id="color-selector-background" type="color" value="<%= this_type.bg_color %>">
                         </div>
                         <div class="color-select flex-column">
                             <h3 class="chocolate-brown font bold">Cor da fonte:</h3>
-                            <input id="color-selector-font" type="color" value="<%= user_types.txt_color %>">
+                            <input name="recipe_type_txt_color" id="color-selector-font" type="color" value="<%= this_type.txt_color %>">
                         </div>
                     </div>
                     <div class="hover save-button">

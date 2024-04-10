@@ -73,7 +73,7 @@
 
                 <div class="gap-20">
                     <div class="flex-row gap-10 width-100 flex-start">
-                        <img class="icon-font fit-contain" src="/img/people-icon.png">
+                        <img class="icon-font fit-contain icon-color" src="/img/people-icon.png">
                         <span class="font chocolate-brown width-100"><%= user_followers %> seguidores</span>
                     </div>
                     <a href="/<%= this_user.username %>/edit-profile"><button class="width-100 smallerhover">Editar</button></a>
@@ -88,7 +88,7 @@
                     <% user_types.forEach(type => { %>
                         <div class="hover">
                             <a style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" class="meal font bold small text-decoration-none" 
-                                href="/<%= this_user.username %>/edit-recipe-type/<%= type.id_type %>"><%= type.name %></a>
+                                href="/<%= this_user.username %>/edit-recipe-type-<%= type.id_type %>"><%= type.name %></a>
                         </div>
                     <% }) %>
                 </div>
@@ -100,7 +100,7 @@
                     <% user_meals.forEach(meal => { %>
                         <div class="hover">
                             <a style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" class="meal font bold small text-decoration-none"
-                                href="/<%= this_user.username %>/edit-meal/<%= meal.id_meal %>"><%= meal.name %></a>
+                                href="/<%= this_user.username %>/edit-meal-<%= meal.id_meal %>"><%= meal.name %></a>
                         </div>
                     <% }) %>
                 </div>

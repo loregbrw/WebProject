@@ -78,11 +78,11 @@
                         <input type="text" class="font small" name="recipe_duration" placeholder="0h00" required>
                         <img class="icon" src="/img/icon-portions-green.png">
                         <input type="number" class="font small" name="recipe_portions" placeholder="1" min="1" required>
-                        <img class="icon hover" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
+                        <img class="icon hover icon-invert" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
                             alt="Vizualização do post">
                     </div>
                     <div class="recipe-types flex-row">
-                        <div class="recipe-type-box">
+                        <div id="items" class="recipe-type-box">
 
                         </div>
                         <div class="recipe-type-add hover">
@@ -103,46 +103,34 @@
                                             <div>
                                                 <h3 class="green bold font">Refeições</h3>
                                                 <div class="row row-cols-1 row-cols-md-3">
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
+                                                    <% user_meals.forEach(meal => { %>
+                                                        <div class="col center gap-10">
+                                                            <input type="checkbox" value="<%= meal.id_meal %>">
+                                                            <label style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" 
+                                                                class="meal font bold small text-decoration-none"><%= meal.name %></label>
+                                                        </div>
+                                                    <% }) %>
                                                 </div>
                                             </div>
                                             <div>
                                                 <h3 class="green bold font">Tipos</h3>
                                                 <div class="row row-cols-1 row-cols-md-3">
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
-                                                    <div class="col center gap-10">
-                                                        <input type="checkbox">
-                                                        <label class="small-box box-green white bold">Almoço</label>
-                                                    </div>
+                                                    
+
+                                                    <% user_types.forEach(type => { %>
+                                                        <div class="col center gap-10">
+                                                            <input type="checkbox">
+                                                            <label style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
+                                                                class="meal font bold small text-decoration-none"><%= type.name %></label>
+                                                        </div>
+                                                    <% }) %>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="edit-button">
-                                            <button type="button">Adicionar</button>
+                                            <button id="add_items"  data-bs-dismiss="modal" type="button">Adicionar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +146,7 @@
             <div class="edit-recipes-bottom gap-40">
                 <div class="view-recipes-ingredients flex-column gap-20">
                     <div class="recipes-ingredients-title">
-                        <img class="icon" src="/img/icon-ingredients.png">
+                        <img class="icon icon-color" src="/img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="ingredients">
@@ -168,14 +156,14 @@
                         </div>
                     </div>
                     <div>
-                        <img class="icon hover" src="/img/icon-delete.png">
+                        <img class="icon hover icon-color" src="/img/icon-delete.png">
                         <img class="icon hover" id="add_input_button" src="/img/plus-icon.png">
                         <span class="yellow font bold small">Adicionar ingrediente</span>
                     </div>
                 </div>
                 <div class="view-recipes-steps flex-column gap-20">
                     <div class="recipes-ingredients-title">
-                        <img class="icon" src="/img/icon-preparation.png">
+                        <img class="icon icon-color" src="/img/icon-preparation.png">
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="steps">
@@ -185,7 +173,7 @@
                         </div>
                     </div>
                     <div>
-                        <img class="icon hover" src="/img/icon-delete.png">
+                        <img class="icon hover icon-color" src="/img/icon-delete.png">
                         <img class="icon hover" id="add_textarea_button" src="/img/plus-icon.png">
                         <span class="yellow font bold small">Adicionar modo de preparo</span>
                     </div>
