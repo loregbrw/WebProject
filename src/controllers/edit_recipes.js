@@ -88,11 +88,19 @@ module.exports = {
         const ingredientsToUpdate = req.body.ingredients;
         if (ingredientsToUpdate && ingredientsToUpdate.length > 0) {
             await Promise.all(ingredientsToUpdate.map(async (ing) => {
-                const ingredient = await ingredients.findByPk(ing.id_ingredients);
-                if (ingredient) {
-                    await ingredient.update({
+                if (ing.id_ingredients) { // Se tiver um ID, atualize o ingrediente existente
+                    const ingredient = await ingredients.findByPk(ing.id_ingredients);
+                    if (ingredient) {
+                        await ingredient.update({
+                            description: ing.ingredient_description,
+                            weight: ing.ingredient_weight,
+                        });
+                    }
+                } else { // Caso contrário, crie um novo ingrediente
+                    await ingredients.create({
                         description: ing.ingredient_description,
                         weight: ing.ingredient_weight,
+                        recipe_id: this_recipe.id_recipe
                     });
                 }
             }));
@@ -101,11 +109,19 @@ module.exports = {
         const stepsToUpdate = req.body.steps;
         if (stepsToUpdate && stepsToUpdate.length > 0) {
             await Promise.all(stepsToUpdate.map(async (st) => {
-                const step = await steps.findByPk(st.id_steps);
-                if (step) {
-                    await step.update({
+                if (st.id_steps) { // Se tiver um ID, atualize a etapa de preparo existente
+                    const step = await steps.findByPk(st.id_steps);
+                    if (step) {
+                        await step.update({
+                            description: st.step_description,
+                            weight: st.step_weight,
+                        });
+                    }
+                } else { // Caso contrário, crie uma nova etapa de preparo
+                    await steps.create({
                         description: st.step_description,
                         weight: st.step_weight,
+                        recipe_id: this_recipe.id_recipe
                     });
                 }
             }));
