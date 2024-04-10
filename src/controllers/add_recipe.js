@@ -1,5 +1,7 @@
 const user = require('../model/Users');
 const recipe = require('../model/Recipes');
+const ingredient = require('../model/Ingredients');
+const step = require('../model/Steps');
 
 module.exports = {
     async pagAddRecipeGet(req, res) {
@@ -42,7 +44,7 @@ module.exports = {
             new_image = '/img/' + 'no-img.jpg';
         }
 
-        await recipe.create({
+        const new_recipe = await recipe.create({
             name: req.body.recipe_name,
             duration: req.body.recipe_duration,
             portions: req.body.recipe_portions,
@@ -52,6 +54,34 @@ module.exports = {
             user_id: this_user.id_user,
             favorite: 0
         });
+
+        
+
+        const ingredients = req.body.ingredients;
+        if (ingredients && ingredients.length > 0) {
+            const ingredientPromises = ingredients.map(async (ing) => {
+                await ingredient.create({
+                    description: ing.ingredient_description,
+                    weight: ing.ingredient_weight,
+                    recipe_id: new_recipe.id_recipe
+                });
+            });
+
+            await Promise.all(ingredientPromises);
+        }
+
+        const steps = req.body.steps;
+        if (steps && steps.length > 0) {
+            const ingredientPromises = steps.map(async (st) => {
+                await step.create({
+                    description: st.step_description,
+                    weight: st.step_weight,
+                    recipe_id: new_recipe.id_recipe
+                });
+            });
+
+            await Promise.all(ingredientPromises);
+        }
 
         return res.redirect(`/${this_user.username}/home`);
     }

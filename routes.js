@@ -43,8 +43,10 @@ route.get('/:username/home', home.pagHomeGet);
 route.post('/:username/home', home.pagHomeGet);
 
 route.get('/:username/view-recipes-:id_recipe', view_recipes.pagViewRecipesGet);
+route.post('/:username/view-recipes-:id_recipe', view_recipes.deleteRecipe);
 
-route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
+route.get('/:username/edit-recipes-:id_recipe', edit_recipes.pagEditRecipesGet);
+route.post('/:username/edit-recipes-:id_recipe', multer(multerConfig).single('recipe_image'), edit_recipes.pagEditRecipePost);
 
 route.get('/:username/edit-recipe-type/:id_type', edit_recipe_type.pagEditRecipeTypeGet);
 route.post('/:username/edit-recipe-type/:id_type', edit_recipe_type.pagEditRecipeTypePost);

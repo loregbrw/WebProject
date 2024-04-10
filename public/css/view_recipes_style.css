@@ -30,12 +30,11 @@
 }
 
 .view-recipes-header {
-    width: 35%;
+    width: 400px;
 }
 
 .view-recipes-content {
-    width: 65%;
-
+    width: calc(100% - 400px);
 }
 
 .recipe-title-and-favorite {
@@ -64,16 +63,16 @@
 }
 
 .view-recipes-ingredients{
-    min-width: 30%;
+    width: 400px;
 }
 
 .view-recipes-steps {
-    min-width: 65%;
+    width: calc(100% - 400px);
 }
 
 .view-recipes-button {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .edit-button {
@@ -113,6 +112,14 @@
 
     .view-recipes-content{
         width: 100% !important;
+    }
+
+    .view-recipes-ingredients{
+        width: 100%;
+    }
+    
+    .view-recipes-steps {
+        width: 100%;
     }
 
     .header-info {
