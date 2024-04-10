@@ -36,7 +36,7 @@ module.exports = {
 
         });
 
-        await recipe_type.create({
+        await recipe_type.update({
             name: req.body.recipe_type_name,
             bg_color: req.body.recipe_type_bg_color,
             txt_color: req.body.recipe_type_txt_color,
