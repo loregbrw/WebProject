@@ -42,7 +42,7 @@ add_textarea.addEventListener("click", function(){
 });
 
 change_view_setting.addEventListener("click", function(){
-    this.setAttribute("src", `img/icon-post-view-${post_view_current}-bigger.png`);
+    this.setAttribute("src", `/img/icon-post-view-${post_view_current}-bigger.png`);
 
     if(post_view_current == 3){
         post_view_current = 1;

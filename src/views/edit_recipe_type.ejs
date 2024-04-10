@@ -58,9 +58,10 @@
     </header>
     <main class="min-100vh">
         <div class="edit-recipe-type">
-            <form action="/<%= this_user.username %>/edit-recipe-type/<%= user_types.id_type %>" method="post">
-                <div class="box gap-40">
-                    <h2 class="font chocolate-brown bold big">Editar tipo de receita</h2>
+
+            <div class="box gap-40">
+                <h2 class="font chocolate-brown bold big">Editar tipo de receita</h2>
+                <form action="/<%= this_user.username %>/edit-recipe-type/<%= user_types.id_type %>" method="post">
                     <div class="recipe-type-name">
                         <input id="color-box" type="text" placeholder="Nome do tipo de receita"
                             value="<%= user_types.name %>">
@@ -81,8 +82,8 @@
                     <div class="hover flex-row delete-icon">
                         <img class="icon icon-color" src="/img/icon-delete.png">
                     </div>
-            </form>
-        </div>
+                </form>
+            </div>
         </div>
     </main>
 
