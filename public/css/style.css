@@ -51,6 +51,14 @@
     background-color: #462404;
 }
 
+.no-decoration {
+    text-decoration: none;
+}
+
+.decoration-brown {
+    text-decoration-color: #462404;
+}
+
 /* format */
 
 .margin-zero {
@@ -139,6 +147,10 @@
 
 .width-50px {
     width: 50px;
+}
+
+.width-calc {
+    width: calc(100% - 20px - 50px);
 }
 
 .width-max {

@@ -42,7 +42,7 @@ route.post('/signup-3', signup_3.pagSignup3Post);
 route.get('/:username/home', home.pagHomeGet);
 route.post('/:username/home', home.pagHomeGet);
 
-route.get('/view-recipes', view_recipes.pagViewRecipesGet);
+route.get('/:username/view-recipes-:id_recipe', view_recipes.pagViewRecipesGet);
 
 route.get('/edit-recipes', edit_recipes.pagEditRecipesGet);
 

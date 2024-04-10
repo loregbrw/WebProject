@@ -17,8 +17,8 @@
     object-fit: cover;
     border: 2px solid #5C5E22;
 
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 
 .view-recipes-top {
@@ -96,7 +96,6 @@
     .header-info {
         flex-wrap: wrap;
         align-items: center;
-        
     }
 }
 
