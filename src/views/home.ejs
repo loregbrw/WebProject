@@ -72,7 +72,7 @@
                         </div>
                         <div class="profile-text">
                             <div class="followers">
-                                <img src="/img/people-icon.png">
+                                <img class="icon-color" src="/img/people-icon.png">
                                 <span class="font chocolate-brown small"><%= user_followers %> seguidores</span>
                             </div>
                             <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/profile"><button class="button small bold hover width-100">Visualizar</button></a>
@@ -81,11 +81,11 @@
                 </div>
 
                 <div class="box flex-row gap-50 ">
-                    <a class="flex-column center hover decoration-brown" href="/<%= this_user.username %>/calendar">
-                        <img src="/img/calendar-icon.png" alt="">
+                    <a class="flex-column center hover decoration-text" href="/<%= this_user.username %>/calendar">
+                        <img class="icon-color " src="/img/calendar-icon.png" alt="">
                         <span class="font chocolate-brown small bold ">Calendário</span>
                     </a>
-                    <a class="flex-column center hover decoration-brown">
+                    <a class="flex-column center hover decoration-text">
                         <img class="icon-color" src="/img/users-icon.png" alt="">
                         <span class="font chocolate-brown small bold" href="">Comunidade</span>
                     </a>
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="favorite">
-                                <button class="hover"><img src="/img/star-icon.png" alt=""></button>
+                                <button class="hover icon-color"><img src="/img/star-icon.png" alt=""></button>
                             </div>
                         </div>
                     </a>

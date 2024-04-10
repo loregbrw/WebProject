@@ -59,6 +59,10 @@
     text-decoration-color: #462404;
 }
 
+.decoration-text {
+    text-decoration-color: var(--body-color);
+}
+
 /* format */
 
 .margin-zero {
