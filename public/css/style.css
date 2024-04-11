@@ -256,3 +256,9 @@
 .gap-50{
     gap: 50px;
 }
+
+.img-c {
+    object-fit: cover;
+    height: 400px;
+    border-radius: 10px;
+}

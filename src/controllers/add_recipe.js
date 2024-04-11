@@ -4,6 +4,10 @@ const type = require('../model/Types');
 const meal = require('../model/Meals');
 const ingredient = require('../model/Ingredients');
 const step = require('../model/Steps');
+const recipe_meal = require('../model/Recipe_meals');
+const recipe_type = require('../model/Recipe_types');
+
+
 
 module.exports = {
     async pagAddRecipeGet(req, res) {
