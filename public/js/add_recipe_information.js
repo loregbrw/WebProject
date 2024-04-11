@@ -70,9 +70,10 @@ change_view_setting.addEventListener("click", function(){
     }
 });
 
-add_items.addEventListener("click", function(){
 
-    let selected_items = [];
+
+
+add_items.addEventListener("click", function(){
 
     console.log("click")
 
@@ -81,18 +82,6 @@ add_items.addEventListener("click", function(){
         selected_items.push(checkbox.value);
     });
 
-    const items_container = document.getElementById("items");
-
-    let ul = document.createElement("ul");
-    items_container.appendChild(ul);
-
-    selected_items.forEach(function(item) {
-        const new_item = document.createElement("span");
-        new_item.style = "background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
-        new_item.appendChild = "<%= type.name %>"
-
-        items_container.appendChild(new_item);
-    });
 
     document.getElementById("types_meals").style.display = "none";
     

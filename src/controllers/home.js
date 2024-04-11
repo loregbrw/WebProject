@@ -1,6 +1,8 @@
 const user = require('../model/Users');
 const recipe = require('../model/Recipes');
 const follows = require('../model/Follows');
+const recipe_type = require('../model/Recipe_types');
+const recipe_meal = require('../model/Recipe_meals');
 
 function getToday() {
     return new Date();
@@ -44,6 +46,18 @@ module.exports = {
             }
         });
 
-        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today, format_today });
+        const user_recipe_types = await recipe_type.count({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        const user_recipe_meals = await recipe_meal.count({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        res.render('../views/home', { this_user, user_recipes, user_followers, user_recipe_types, user_recipe_meals, count_recipes, today, format_today });
     }
 }

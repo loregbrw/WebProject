@@ -78,7 +78,7 @@
                             <img class="icon" src="/img/icon-portions-green.png">
                             <input type="number" name="recipe_portions" value="<%= this_recipe.portions %>" min="1" required>
                         </div>
-                        <img class="icon" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
+                        <img class="icon icon-invert" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
                             alt="Vizualização do post">
                     </div>
                     <div class="recipe-types">
@@ -162,7 +162,7 @@
             <div class="edit-recipes-bottom gap-40">
                 <div class="view-recipes-ingredients flex-column gap-20">
                     <div class="recipes-ingredients-title">
-                        <img class="icon" src="/img/icon-ingredients.png">
+                        <img class="icon icon-color" src="/img/icon-ingredients.png">
                         <span class="font chocolate-brown bold big">Ingredientes</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20 width-100 " id="ingredients">
@@ -181,7 +181,7 @@
                 </div>
                 <div class="view-recipes-steps flex-column gap-20">
                     <div class="recipes-ingredients-title">
-                        <img class="icon" src="/img/icon-preparation.png">
+                        <img class="icon icon-color" src="/img/icon-preparation.png">
                         <span class="font chocolate-brown bold big">Modo de Preparo</span>
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="steps">
@@ -208,6 +208,7 @@
     </main>
     <script src="/js/add_photo.js" defer></script>
     <script src="/js/add_recipe_information.js" defer></script>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

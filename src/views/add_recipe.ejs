@@ -83,7 +83,7 @@
                     </div>
                     <div class="recipe-types flex-row">
                         <div id="items" class="recipe-type-box">
-
+                            
                         </div>
                         <div class="recipe-type-add hover">
                             <img class="icon" data-bs-toggle="modal" data-bs-target="#types_meals"
@@ -102,10 +102,10 @@
                                         <div class="container-fluid flex-column gap-30">
                                             <div>
                                                 <h3 class="green bold font">Refeições</h3>
-                                                <div class="row row-cols-1 row-cols-md-3">
+                                                <div class="row row-cols-1 row-cols-md-3" id="meals">
                                                     <% user_meals.forEach(meal => { %>
                                                         <div class="col center gap-10">
-                                                            <input type="checkbox" value="<%= meal.id_meal %>">
+                                                            <input type="checkbox" name="meal_id" value="<%= meal.id_meal %>">
                                                             <label style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" 
                                                                 class="meal font bold small text-decoration-none"><%= meal.name %></label>
                                                         </div>
@@ -114,12 +114,10 @@
                                             </div>
                                             <div>
                                                 <h3 class="green bold font">Tipos</h3>
-                                                <div class="row row-cols-1 row-cols-md-3">
-                                                    
-
+                                                <div class="row row-cols-1 row-cols-md-3" id="types">
                                                     <% user_types.forEach(type => { %>
                                                         <div class="col center gap-10">
-                                                            <input type="checkbox">
+                                                            <input type="checkbox" name="type_id" value="<%= type.id_type %>" >
                                                             <label style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
                                                                 class="meal font bold small text-decoration-none"><%= type.name %></label>
                                                         </div>
