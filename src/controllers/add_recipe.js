@@ -96,6 +96,28 @@ module.exports = {
             await Promise.all(ingredientPromises);
         }
 
+        // Obtém os meals selecionados do corpo da requisição
+        const selectedMeals = req.body.meals || [];
+        console.log(selectedMeals);
+        
+        for (const mealId of selectedMeals) {
+            await recipe_meal.create({
+                recipe_id: new_recipe.id_recipe,
+                meal_id: mealId
+            });
+        }
+
+        // Obtém os types selecionados do corpo da requisição
+        const selectedTypes = req.body.types || [];
+        console.log(selectedTypes)
+
+        for (const typeId of selectedTypes) {
+            await recipe_type.create({
+                recipe_id: new_recipe.id_recipe,
+                type_id: typeId
+            });
+        }   
+
         return res.redirect(`/${this_user.username}/home`);
     }
 }

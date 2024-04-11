@@ -111,7 +111,7 @@
                 </div>
             </aside>
             <article>
-                <% user_recipes.forEach(recipe => { %>
+                <% user_recipes.forEach((recipe, index) => { %>
                     <a href="/<%= this_user.username %>/view-recipes-<%= recipe.id_recipe %>" class="recipe box hover smallerhover no-decoration">
                         <img class="recipe-img" src="<%= recipe.image %>">
                         <div class="recipe-text">
@@ -126,9 +126,20 @@
                                     <span class="font small green"><%= recipe.portions %> porções</span>
                                 </div>
                             </div>
+                            <div>
+                                <% user_recipe_types[index].forEach(type => { %>
+                                    <span style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
+                                        class="meal font bold small text-decoration-none"><%= type.name %></span>
+                                <% }) %>
+                                <% user_recipe_meals[index].forEach(meal => { %>
+                                    <span style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" 
+                                        class="meal font bold small text-decoration-none"><%= meal.name %></span>
+                                <% }) %>    
+                            </div>
                             <div class="favorite">
                                 <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
                             </div>
+                            
                         </div>
                     </a>
                 <% }) %>
