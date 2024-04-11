@@ -73,42 +73,40 @@ change_view_setting.addEventListener("click", function(){
 
 
 
-add_items.addEventListener("click", function(){
-
-    console.log("click")
-
-    var selected_meals = [];
-    var mealCheckboxes = document.querySelectorAll('input[name="meal_id"]');
+document.getElementById("add_items").addEventListener("click", function() {
+    var selectedMeals = [];
+    var mealCheckboxes = document.querySelectorAll('input[name="meals"]:checked');
     mealCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-            selected_meals.push(checkbox.value);
-        }
+        selectedMeals.push(checkbox.value);
     });
 
-    var selected_types = [];
-    var typeCheckboxes = document.querySelectorAll('input[name="type_id"]');
+    var selectedTypes = [];
+    var typeCheckboxes = document.querySelectorAll('input[name="types"]:checked');
     typeCheckboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-            selected_types.push(checkbox.value);
-        }
+        selectedTypes.push(checkbox.value);
     });
 
-    fetch('pagAddRecipePost', {
+    fetch('/<%= this_user.username %>/add-recipe', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            meals: selected_meals,
-            types: selectedT_types
+            meals: selectedMeals,
+            types: selectedTypes
         })
-    })  
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    checkboxes.forEach(function(checkbox) {
-        selected_items.push(checkbox.value);
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add items');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Items added successfully:', data);
+        // Faça algo com a resposta, se necessário
+    })
+    .catch(error => {
+        console.error('Error adding items:', error);
     });
-
-
-    document.getElementById("types_meals").style.display = "none";
-    
 });
