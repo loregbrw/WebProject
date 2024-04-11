@@ -81,7 +81,45 @@
                         <div class="recipe-title-and-favorite flex-wrap flex-row">
                             <h2 class="font chocolate-brown very-big superbold"><%= this_recipe.name %></h2>
                             <div class="view-recipes-favorite">
-                                <img class="icon icon-color" src="/img/star-icon.png">
+                                <div class="view-recipes-favorite">
+                                    <img id="favorite-icon" class="icon icon-color" src="/img/star-<%= this_recipe.favorite ? 'filled-icon' : 'icon' %>.png" onclick="toggleFavorite()">
+                                </div>
+                                <script>
+                                    function toggleFavorite() {
+                                        const favoriteIcon = document.getElementById('favorite-icon');
+                                        const isFavorite = favoriteIcon.src.includes('star-filled.png');
+
+                                        // Alterna entre a imagem de estrela preenchida e vazia
+                                        if (isFavorite) {
+                                            favoriteIcon.src = '/img/star-empty.png';
+                                        } else {
+                                            favoriteIcon.src = '/img/star-filled.png';
+                                        }
+                                    
+                                        // Envie uma solicitação ao servidor para atualizar o status da receita como favorita
+                                        fetch(`/api/recipes/${<%= this_recipe.id_recipe %>}/favorite`, {
+                                            method: 'PUT',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({ favorite: !isFavorite }) // envie o status oposto ao servidor
+                                        })
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Failed to update favorite status');
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(data => {
+                                            console.log('Favorite status updated successfully:', data);
+                                            window.location.reload()
+                                        })
+                                        .catch(error => {
+                                            console.error('Error updating favorite status:', error);
+                                        });
+                                    }
+                                </script>
+                                                                
                             </div>
                         </div>
                         <div class="flex-wrap gap-20">
