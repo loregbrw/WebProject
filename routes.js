@@ -60,13 +60,13 @@ route.get('/:username/calendar', calendar.pagCalendarGet);
 route.get('/:username/edit-meal-:id_meal', edit_meal.pagEditMealGet);
 route.post('/:username/edit-meal-:id_meal', edit_meal.pagEditMealPost);
 
-route.get('/day', day.pagDayGet);
+route.get('/:username/day/:day-:month-:year', day.pagDayGet);
 
 route.get('/:username/edit-profile', edit_profile.pagEditProfileGet);
 route.post('/:username/edit-profile', multer(multerConfig).single('user_image'), edit_profile.pagEditProfilePost);
 
 
-route.get('/:username/comunity', comunity.pagComunityGet);
+route.get('/:username/add-recipe/:day-:month-:year', comunity.pagComunityGet);
 
 route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
 route.post('/:username/add-recipe', multer(multerConfig).single('recipe_image'), add_recipe.pagAddRecipePost);

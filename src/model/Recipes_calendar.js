@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db');
 const recipe = require('./Recipes');
-const user_calendar = require('./User_calendar');
+const user = require('./Users');
+const calendar = require('./Calendar');
 
 const recipe_calendar = database.define('Recipe_calendar', {
     id_recipe_calendar: {
@@ -18,18 +19,24 @@ const recipe_calendar = database.define('Recipe_calendar', {
             key: 'id_recipe'
         }
     },
-    user_calendar_id: {
+    user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: user_calendar,
-            key: 'id_user_calendar'
+            model: user,
+            key: 'id_user'
+        }
+    },
+    calendar_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: calendar,
+            key: 'id_calendar'
         }
     }
 });
 
-recipe.belongsToMany(user_calendar, { through: recipe_calendar, foreignKey: 'recipe_id' });
-user_calendar.belongsToMany(recipe, { through: recipe_calendar, foreignKey: 'user_calendar_id' });
-
+recipe.belongsToMany(calendar, { through: recipe_calendar, foreignKey: 'recipe_id' });
 
 module.exports = recipe_calendar;

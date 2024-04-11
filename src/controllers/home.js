@@ -4,6 +4,11 @@ const follows = require('../model/Follows');
 const recipe_type = require('../model/Recipe_types');
 const recipe_meal = require('../model/Recipe_meals');
 
+const Sequelize = require('sequelize');
+const database = require('../config/db');
+const calendar = require('../model/Calendar');
+const { link } = require('../../routes');
+
 function getToday() {
     return new Date();
 }
@@ -12,6 +17,13 @@ function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     return `${day}/${month}`;
+}
+
+function linkDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
 }
 
 module.exports = {
@@ -27,6 +39,7 @@ module.exports = {
 
         today = getToday();
         format_today = formatDate(today);
+        link_today = linkDate(today);
 
         const user_recipes = await recipe.findAll({
             where: {
@@ -46,30 +59,31 @@ module.exports = {
             }
         });
 
-        // const user_recipe_types = await recipe_type.count({
-        //     where: {
-        //         user_id: this_user.id_user
-        //     }
-        // });
+        async function addDataForCurrentMonth() {
+            const today = getToday();
+            const currentYear = today.getFullYear();
+            const currentMonth = today.getMonth() + 1; // Note que getMonth() retorna de 0 a 11
+        
+            const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+        
+            // Itera sobre todos os dias do mês
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDate = new Date(currentYear, currentMonth - 1, day); // Note que o mês é baseado em zero
+                const weekday = currentDate.getDay(); // Dia da semana (0 para domingo, 1 para segunda, etc.)
+        
+                // Insere um registro no banco de dados para o dia atual, se ainda não existir
+                await calendar.findOrCreate({
+                    where: { day: currentDate },
+                    defaults: { weekday: weekday }
+                });
+            }
+        
+            console.log(`Dados para todos os dias do mês ${currentMonth}/${currentYear} foram adicionados.`);
+        }
+        
+        // Chamada da função para adicionar os dados
+        addDataForCurrentMonth();
 
-        // const user_recipe_meals = await recipe_meal.count({
-        //     where: {
-        //         user_id: this_user.id_user
-        //     }
-        // });
-
-        // const user_recipe_types = await recipe_type.count({
-        //     where: {
-        //         user_id: this_user.id_user
-        //     }
-        // });
-
-        // const user_recipe_meals = await recipe_meal.count({
-        //     where: {
-        //         user_id: this_user.id_user
-        //     }
-        // });
-
-        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today, format_today });
+        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today: format_today, link_today });
     }
 }

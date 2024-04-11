@@ -23,7 +23,11 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/day_style.css">
     <link rel="stylesheet" type="text/css" href="/css/small_box_style.css">
-    <title>Dia</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header_style.css">
+    <link rel="stylesheet" type="text/css" href="/css/recipe_style.css">
+    <title>DIa</title>
 </head>
 
 <body>
@@ -31,7 +35,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
+                            class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -39,14 +44,13 @@
                     </button>
                 </div>
                 <span class="center">
-                    <div class="collapse navbar-collapse center" id="navbarContent" style="">
+                    <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration"
-                                    href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
-                                <img src="img/icon-dark-mode-black.png">
+                                <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
                             </li>
                         </ul>
                     </div>
@@ -56,108 +60,46 @@
     </header>
     <main>
         <div class="view-day">
-            <div class="box gap-40">
-                <h2 class="font chocolate-brown bold big">Hoje - 26/03</h2>
+            <div class="box gap-30">
+                <h2 class="font chocolate-brown superbold big">Dia - <%= formatted_date %></h2>
+                <% if (recipes_day.length > 0) { %>
+                <% recipes_day.forEach(recipe => { %>
                 <div class="day-meal flex-column gap-10">
                     <span class="small-box box-green white font bold">
-                        Café da manhã
+                        <%= recipe.Recipe.recipe_type %>
                     </span>
                     <div class="flex-row flex-wrap gap-20">
                         <div class="day-recipe-box">
                             <div class="box gap-10">
-                                <h3 class="font chocolate-brown bold">Pizza de queijo</h3>
+                                <h3 class="font chocolate-brown bold"><%= recipe.Recipe.name %></h3>
                                 <div class="recipe-info">
                                     <div class="icon-info">
                                         <img src="/img/icon-clock-green.png" alt="clock">
-                                        <span class="font small green">1h30min</span>
+                                        <span class="font small green"><%= recipe.Recipe.duration %></span>
                                     </div>
                                     <div class="icon-info">
                                         <img src="/img/icon-portions-green.png" alt="meal">
-                                        <span class="font small green">2 porções</span>
+                                        <span class="font small green"><%= recipe.Recipe.portions %> porções</span>
                                     </div>
                                 </div>
                                 <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                                    <div class="meal font supersmall white bold width center">Café da manhã</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="day-recipe-box">
-                            <div class="box gap-10">
-                                <h3 class="font chocolate-brown bold">Pizza de queijo</h3>
-                                <div class="recipe-info">
-                                    <div class="icon-info">
-                                        <img src="/img/icon-clock-green.png" alt="clock">
-                                        <span class="font small green">1h30min</span>
-                                    </div>
-                                    <div class="icon-info">
-                                        <img src="/img/icon-portions-green.png" alt="meal">
-                                        <span class="font small green">2 porções</span>
-                                    </div>
-                                </div>
-                                <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                                    <div class="meal font supersmall white bold width center">Café da manhã</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="day-recipe-box">
-                            <div class="box gap-10">
-                                <h3 class="font chocolate-brown bold">Pizza de queijo</h3>
-                                <div class="recipe-info">
-                                    <div class="icon-info">
-                                        <img src="/img/icon-clock-green.png" alt="clock">
-                                        <span class="font small green">1h30min</span>
-                                    </div>
-                                    <div class="icon-info">
-                                        <img src="/img/icon-portions-green.png" alt="meal">
-                                        <span class="font small green">2 porções</span>
-                                    </div>
-                                </div>
-                                <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                                    <div class="meal font supersmall white bold width center">Café da manhã</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    
+                                    <!-- Outras informações da receita -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="day-meal flex-column gap-10">
-                    <span class="small-box box-yellow white font bold">
-                        Janta
-                    </span>
-                    <div class="flex-row flex-wrap gap-20">
-                        <div class="day-recipe-box">
-                            <div class="box gap-10">
-                                <h3 class="font chocolate-brown bold">Pizza de queijo</h3>
-                                <div class="recipe-info">
-                                    <div class="icon-info">
-                                        <img src="/img/icon-clock-green.png" alt="clock">
-                                        <span class="font small green">1h30min</span>
-                                    </div>
-                                    <div class="icon-info">
-                                        <img src="/img/icon-portions-green.png" alt="meal">
-                                        <span class="font small green">2 porções</span>
-                                    </div>
-                                </div>
-                                <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                                    <div class="meal font supersmall white bold width center">Café da manhã</div>
-                                    <div class="meal font supersmall white bold width center">Almoço</div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% }); %>
+                <% } else { %>
+                <p>Não há receitas para este dia.</p>
+                <% } %>
             </div>
         </div>
+        <div class="button-more">
+            <a href="/<%= this_user.username %>/add-recipe/<%= link_date %>"><img class="hover" src="/img/plus-icon.png"></a>
+        </div>
     </main>
+    <script src="/js/dark_mode.js" defer></script>
 </body>
 
 </html>

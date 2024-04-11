@@ -29,7 +29,7 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero hover" href="/home/<%= this_user.username %>"><img src="/img/logo-white-green.png"
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
                             class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
@@ -41,7 +41,7 @@
                     <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="hover font chocolate-brown superbold no-decoration" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
@@ -53,45 +53,30 @@
         </nav>
     </header>
     <main class="flex-column gap-20">
-        <div class="flex-end">
-            <aside class="width-100">
-                <form action="">
-                    <img class="height-100 hover icon-color" src="/img/icon-friendgroup-bigger-brown.png">
-                    <img class="height-100 hover icon-color" src="/img/icon-globe.png">
-                    <input class="width-100" type="text" name="" id="" class="box"
-                        placeholder="Pesquisar em suas receitas">
-                    <a href=""><img class="height-100 hover icon-color"  src="/img/filter-icon.png" alt=""></a>
-                </form>
-            </aside>
-        </div>
         <div class="center width-100">
-            <article class="flex-row gap-40">
-                <div class="recipe box hover">
-                    <img class="recipe-img"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMW9td0rU1cZ5IXysJhQ4N_Vv54UexXeFuHunmhm2JfLAaYkR">
+            <article class="flex-row gap-40 width-fit">
+                <% user_recipes.forEach(recipe => { %>
+                <a class="recipe box hover no-decoration" id="recipe_<%= recipe.id %>">
+                    <img class="recipe-img" src="<%= recipe.image %>">
                     <div class="recipe-text">
-                        <span class="chocolate-brown superbold">Pizza de Queijo</span>
+                        <span class="font chocolate-brown superbold"><%= recipe.name %></span>
                         <div class="recipe-info">
                             <div class="icon-info">
                                 <img src="/img/icon-clock-green.png" alt="clock">
-                                <span class="font small green">1h30min</span>
+                                <span class="font small green"><%= recipe.duration %></span>
                             </div>
                             <div class="icon-info">
                                 <img src="/img/icon-portions-green.png" alt="meal">
-                                <span class="font small green">2 porções</span>
+                                <span class="font small green"><%= recipe.portions %> porções</span>
                             </div>
                         </div>
-                        <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                            <div class="meal font supersmall white bold width center">Café da manhã</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                            <div class="meal font supersmall white bold width center">Almoço</div>
-                        </div>
                         <div class="favorite">
-                            <button><img class="icon-color" src="/img/star-icon.png" alt=""></button>
+                            <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
                         </div>
                     </div>
-                </div>
+                </a>
+                <% }) %>
+            
             </article>
         </div>
         <div class="button-more hover">

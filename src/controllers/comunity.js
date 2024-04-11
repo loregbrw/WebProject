@@ -1,4 +1,5 @@
 const user = require('../model/Users');
+const recipe = require('../model/Recipes');
 
 module.exports = {
     async pagComunityGet(req, res) {
@@ -9,9 +10,14 @@ module.exports = {
                 username: parametro
             },
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
-
         });
 
-        res.render('../views/comunity', {this_user});
+        const user_recipes = await recipe.findAll({
+            where: {
+                user_id: this_user.id_user
+            }
+        });
+
+        res.render('../views/comunity', {this_user, user_recipes});
     }
 }

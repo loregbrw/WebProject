@@ -77,10 +77,10 @@
             <% } 
 
             for (let day = 1; day <= month_days; day++) { %>
-                <div class="day">
+                <a href="/<%= this_user.username %>/day/<%= day %>-<%= month_num %>-<%= year %>" class="day no-decoration">
                     <div class=" green superbold font hover"><%= day %></div>
                     <img src="/img/plus-icon2.png" class="hover">
-                </div>
+                </a>
             <% }
 
             const month_last_day = new Date(year, month_num - 1, month_days).getDay();

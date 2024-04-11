@@ -70,7 +70,7 @@
                 </div>
                 <div class="view-recipes-content flex-column gap-20">
                     <div class="recipe-title-and-favorite flex-row">
-                        <input type="text" class="font" name="recipe_name" placeholder="Título" required>
+                        <input type="text" class="font bold" name="recipe_name" placeholder="Título" required>
                     </div>
                     <div class="recipe-info">
                         <img class="icon" src="/img/icon-clock-green.png">
@@ -148,8 +148,8 @@
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="ingredients">
                         <div class="flex-row gap-20">
-                            <input name="ingredients[0][ingredient_weight]" class="width-50px" type="number" placeholder="1" min="1" required>
-                            <input name="ingredients[0][ingredient_description]" class="width-70" type="text" placeholder="Ingrediente" maxlength="255" required>
+                            <input name="ingredients[0][ingredient_weight]" class="width-50px font" type="number" placeholder="1" min="1" required>
+                            <input name="ingredients[0][ingredient_description]" class="width-70 font" type="text" placeholder="Ingrediente" maxlength="255" required>
                         </div>
                     </div>
                     <div>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="font chocolate-brown flex-column gap-20" id="steps">
                         <div class="flex-row gap-20">
-                            <input name="steps[0][step_weight]" class="width-50px" type="number" placeholder="1" min="1" required>
+                            <input name="steps[0][step_weight]" class="width-50px font" type="number" placeholder="1" min="1" required>
                             <textarea name="steps[0][step_description]" id="" class="font" placeholder="Passo" required></textarea>
                         </div>
                     </div>

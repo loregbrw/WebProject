@@ -5,7 +5,6 @@ const meal = require('../model/Meals');
 const follows = require('../model/Follows');
 const recipe = require('../model/Recipes');
 const recipe_calendar = require('../model/Recipes_calendar');
-const user_calendar = require('../model/User_calendar');
 
 function calculateAge(birthDate) {
     const today = new Date();
@@ -27,7 +26,7 @@ async function mostRecipe(user) {
 
     const consumed_recipe_calendar = await recipe_calendar.findAll({
         where: {
-            user_calendar_id: user,
+            user_id: user,
             createdAt: {
                 [Sequelize.Op.between]: [month_first_day, month_last_day]
             }
