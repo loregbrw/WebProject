@@ -71,17 +71,37 @@ change_view_setting.addEventListener("click", function(){
 });
 
 
-
-
 add_items.addEventListener("click", function(){
 
     console.log("click")
 
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    checkboxes.forEach(function(checkbox) {
-        selected_items.push(checkbox.value);
+    var selected_meals = [];
+    var mealCheckboxes = document.querySelectorAll('input[name="meal_id"]');
+    mealCheckboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedMeals.push(checkbox.value);
+        }
     });
 
+    // Obter os checkboxes de types
+    var selected_types = [];
+    var typeCheckboxes = document.querySelectorAll('input[name="type_id"]');
+    typeCheckboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedTypes.push(checkbox.value);
+        }
+    });
+
+    fetch('/cadastrar_itens', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            meals: selectedMeals,
+            types: selectedTypes
+        })
+    })  
 
     document.getElementById("types_meals").style.display = "none";
     
