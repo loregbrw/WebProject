@@ -58,7 +58,7 @@
         <div class="section">
             <aside>
                 <form action="">
-                    <input class="width-100" type="text" name="" id="" class="box"
+                    <input class="width-100" type="text" name="" id="search_bar" class="box"
                         placeholder="Pesquisar em suas receitas">
                     <a href=""><img src="/img/filter-icon.png" class="hover icon-color"></a>
                 </form>
@@ -126,9 +126,13 @@
                                     <span class="font small green"><%= recipe.portions %> porções</span>
                                 </div>
                             </div>
-
                             <div class="favorite">
                                 <button class="hover icon-color"><img src="/img/star-icon.png" alt=""></button>
+                            </div>
+                            <div>
+                                <% user_recipe_types.forEach(recipe_type => { %>
+                                    
+                                <% }) %>
                             </div>
                         </div>
                     </a>
