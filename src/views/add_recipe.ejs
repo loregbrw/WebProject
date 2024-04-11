@@ -35,8 +35,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero hover" href="/home/<%= this_user.username %>"><img
-                            src="/img/logo-white-green.png" class="logo-icon"></a>
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
+                            class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -47,8 +47,7 @@
                     <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration hover"
-                                    href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
@@ -78,8 +77,8 @@
                         <input type="text" class="font small" name="recipe_duration" placeholder="0h00" required>
                         <img class="icon" src="/img/icon-portions-green.png">
                         <input type="number" class="font small" name="recipe_portions" placeholder="1" min="1" required>
-                        <img class="icon hover icon-invert" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
-                            alt="Vizualização do post">
+                        <!-- <img class="icon hover icon-invert" id="post_view_setting" src="/img/icon-post-view-1-bigger.png"
+                            alt="Vizualização do post"> -->
                     </div>
                     <div class="recipe-types flex-row">
                         <div id="items" class="recipe-type-box">
