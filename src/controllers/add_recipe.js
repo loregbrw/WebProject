@@ -6,6 +6,7 @@ const meal = require('../model/Meals');
 const recipe_meal = require('../model/Recipe_meals');
 const ingredient = require('../model/Ingredients');
 const step = require('../model/Steps');
+const e = require('express');
 
 module.exports = {
     async pagAddRecipeGet(req, res) {
@@ -50,12 +51,6 @@ module.exports = {
             }
         });
 
-        // Obtém os meals selecionados do corpo da requisição
-        const selectedMeals = req.body.meals || [];
-
-        // Obtém os types selecionados do corpo da requisição
-        const selectedTypes = req.body.types || [];
-
         let new_image;
 
         if (req.file) {
@@ -75,28 +70,27 @@ module.exports = {
             favorite: 0
         });
 
-        // Adiciona os meals selecionados à tabela de relacionamento recipe_meal
-        if (Array.isArray(selectedMeals)) {
-            // Código para processar os meals selecionados
-            await Promise.all(selectedMeals.map(async mealId => {
-                await recipe_meal.create({
-                    recipe_id: new_recipe.id_recipe,
-                    meal_id: mealId
-                });
-            }));
-        } else {
-            console.error('selectedMeals is not an array');
+        // Obtém os meals selecionados do corpo da requisição
+        const selectedMeals = req.body.meals || [];
+        console.log(selectedMeals);
+        
+        for (const mealId of selectedMeals) {
+            await recipe_meal.create({
+                recipe_id: new_recipe.id_recipe,
+                meal_id: mealId
+            });
         }
 
+        // Obtém os types selecionados do corpo da requisição
+        const selectedTypes = req.body.types || [];
+        console.log(selectedTypes)
 
-        if (Array.isArray(selectedTypes)) {
-            await Promise.all(selectedTypes.map(async typeId => {
-                await recipe_type.create({
-                    recipe_id: new_recipe.id_recipe,
-                    type_id: typeId
-                });
-            }));
-        }
+        for (const typeId of selectedTypes) {
+            await recipe_type.create({
+                recipe_id: new_recipe.id_recipe,
+                type_id: typeId
+            });
+        }   
 
         return res.redirect(`/${this_user.username}/home`);
     }
