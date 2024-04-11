@@ -81,27 +81,26 @@ add_items.addEventListener("click", function(){
     var mealCheckboxes = document.querySelectorAll('input[name="meal_id"]');
     mealCheckboxes.forEach(function(checkbox) {
         if (checkbox.checked) {
-            selectedMeals.push(checkbox.value);
+            selected_meals.push(checkbox.value);
         }
     });
 
-    // Obter os checkboxes de types
     var selected_types = [];
     var typeCheckboxes = document.querySelectorAll('input[name="type_id"]');
     typeCheckboxes.forEach(function(checkbox) {
         if (checkbox.checked) {
-            selectedTypes.push(checkbox.value);
+            selected_types.push(checkbox.value);
         }
     });
 
-    fetch('/cadastrar_itens', {
+    fetch('pagAddRecipePost', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            meals: selectedMeals,
-            types: selectedTypes
+            meals: selected_meals,
+            types: selectedT_types
         })
     })  
     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
