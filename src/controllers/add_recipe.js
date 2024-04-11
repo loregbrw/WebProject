@@ -9,7 +9,6 @@ module.exports = {
     async pagAddRecipeGet(req, res) {
 
         const parametro = req.params.username;
-        const parametro_types = req.params.id_type;
 
         const this_user = await user.findOne({
             where: {
@@ -17,12 +16,6 @@ module.exports = {
             },
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
 
-        });
-
-        const this_type = await type.findOne({ 
-            where: {
-                id_type: parametro_types
-            }
         });
 
         const user_types = await type.findAll({
@@ -37,7 +30,7 @@ module.exports = {
             }
         });
 
-        res.render('../views/add_recipe', {this_user, this_type, user_types, user_meals});
+        res.render('../views/add_recipe', {this_user, user_types, user_meals});
     },
     async pagAddRecipePost(req, res) {
 
@@ -102,6 +95,19 @@ module.exports = {
             const ingredientPromises = steps.map(async (st) => {
                 await step.create({
                     description: st.step_description,
+                    weight: st.step_weight,
+                    recipe_id: new_recipe.id_recipe
+                });
+            });
+
+            await Promise.all(ingredientPromises);
+        }
+
+        const types = req.body.types;
+        if (types && types.length > 0) {
+            const typesPromises = types.map(async (ty) => {
+                await type.create({
+                    id_recipe_type: ty.step_description,
                     weight: st.step_weight,
                     recipe_id: new_recipe.id_recipe
                 });
