@@ -58,6 +58,18 @@ module.exports = {
         //     }
         // });
 
+        // const user_recipe_types = await recipe_type.count({
+        //     where: {
+        //         user_id: this_user.id_user
+        //     }
+        // });
+
+        // const user_recipe_meals = await recipe_meal.count({
+        //     where: {
+        //         user_id: this_user.id_user
+        //     }
+        // });
+
         res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today, format_today });
     }
 }

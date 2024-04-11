@@ -255,7 +255,7 @@ aside form input {
     width: fit-content;
 }
 
-.recipe-text button img {
+.recipe-text .favorite img {
     height: 30px;
 }
 

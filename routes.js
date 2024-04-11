@@ -23,6 +23,8 @@ const add_meal = require('./src/controllers/add_meal');
 const multer = require('multer');
 const multerConfig = require('./src/config/multer');
 
+const recipe = require('./src/model/Recipes');
+
 // const upload = multer(multerConfig);
 
 route.get('/', index.pagIndexGet);
@@ -74,5 +76,27 @@ route.post('/:username/add-recipe-type', add_recipe_type.pagAddRecipeTypePost);
 
 route.get('/:username/add-meal', add_meal.pagAddMealGet);
 route.post('/:username/add-meal', add_meal.pagAddMealPost);
+
+route.put('/api/recipes/:id_recipe/favorite', async (req, res) => {
+    const idRecipe = req.params.id_recipe;
+    const { favorite } = req.body;
+
+    try {
+        // Encontre a receita no banco de dados
+        const thisRecipe = await recipe.findByPk(idRecipe);
+        
+        // Inverta o valor da propriedade `favorite`
+        thisRecipe.favorite = !thisRecipe.favorite;
+        
+        // Salve as alterações no banco de dados
+        await thisRecipe.save();
+
+        res.json({ favorite: thisRecipe.favorite }); // Retorna o novo valor `favorite`
+    } catch (error) {
+        console.error('Failed to update favorite status:', error);
+        res.status(500).json({ error: 'Failed to update favorite status' });
+    }
+});
+
 
 module.exports = route;

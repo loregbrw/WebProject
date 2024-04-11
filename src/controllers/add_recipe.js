@@ -32,20 +32,16 @@ module.exports = {
             }
         });
 
-        res.render('../views/add_recipe', {this_user, user_types, user_meals});
+        res.render('../views/add_recipe', { this_user, user_types, user_meals });
     },
     async pagAddRecipePost(req, res) {
-
         const parametro = req.params.username;
-
-        console.log(parametro);
 
         const this_user = await user.findOne({
             where: {
                 username: parametro
             },
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
-
         });
 
         const user_types = await type.findAll({
@@ -54,14 +50,16 @@ module.exports = {
             }
         });
 
-       let new_image;
+        // Obtém os meals selecionados do corpo da requisição
+        const selectedMeals = req.body.meals || [];
 
-        console.log(req.file);
-        console.log(req.body.recipe_image);
+        // Obtém os types selecionados do corpo da requisição
+        const selectedTypes = req.body.types || [];
+
+        let new_image;
 
         if (req.file) {
             new_image = '/img/' + req.file.filename;
-            console.log(new_image);
         } else {
             new_image = '/img/' + 'no-img.jpg';
         }
@@ -77,69 +75,30 @@ module.exports = {
             favorite: 0
         });
 
-        
-
-        const ingredients = req.body.ingredients;
-        if (ingredients && ingredients.length > 0) {
-            const ingredientPromises = ingredients.map(async (ing) => {
-                await ingredient.create({
-                    description: ing.ingredient_description,
-                    weight: ing.ingredient_weight,
-                    recipe_id: new_recipe.id_recipe
+        // Adiciona os meals selecionados à tabela de relacionamento recipe_meal
+        if (Array.isArray(selectedMeals)) {
+            // Código para processar os meals selecionados
+            await Promise.all(selectedMeals.map(async mealId => {
+                await recipe_meal.create({
+                    recipe_id: new_recipe.id_recipe,
+                    meal_id: mealId
                 });
-            });
-
-            await Promise.all(ingredientPromises);
+            }));
+        } else {
+            console.error('selectedMeals is not an array');
         }
 
-        const steps = req.body.steps;
-        if (steps && steps.length > 0) {
-            const ingredientPromises = steps.map(async (st) => {
-                await step.create({
-                    description: st.step_description,
-                    weight: st.step_weight,
-                    recipe_id: new_recipe.id_recipe
+
+        if (Array.isArray(selectedTypes)) {
+            await Promise.all(selectedTypes.map(async typeId => {
+                await recipe_type.create({
+                    recipe_id: new_recipe.id_recipe,
+                    type_id: typeId
                 });
-            });
-
-            await Promise.all(ingredientPromises);
-        }
-
-        const types = req.body.types;
-        if (types && types.length > 0) {
-            const ingredientPromises = types.map(async (ty) => {
-                const checkbox = req.body.type_id;
-                if(checkbox){
-                    checkbox.checked = true;
-                    await checkbox.save();
-                    await recipe_type.create({
-                        type_id: ty.type_id.value,
-                        recipe_id: new_recipe.id_recipe
-                    });
-                }
-                
-            });
-
-            await Promise.all(ingredientPromises);
-        }
-
-        const meals = req.body.meals;
-        if (meals && meals.length > 0) {
-            const ingredientPromises = meals.map(async (ml) => {
-                const checkbox = req.body.meal_id;
-                if(checkbox){
-                    checkbox.checked = true;
-                    await checkbox.save();
-                    await recipe_meal.create({
-                        meal_id: ml.meal_id.value,
-                        recipe_id: new_recipe.id_recipe
-                    });
-                }
-            });
-
-            await Promise.all(ingredientPromises);
+            }));
         }
 
         return res.redirect(`/${this_user.username}/home`);
     }
+
 }

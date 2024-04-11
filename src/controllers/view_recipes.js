@@ -14,7 +14,7 @@ module.exports = {
             where: {
                 id_recipe: parametro_recipe
             },
-            attributes: ['id_recipe', 'name', 'duration', 'portions', 'status', 'description', 'image']
+            attributes: ['id_recipe', 'name', 'duration', 'portions', 'status', 'description', 'image', 'favorite', 'user_id']
         });
 
         const this_user = await user.findOne({

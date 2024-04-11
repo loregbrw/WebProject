@@ -58,7 +58,7 @@
         <div class="section">
             <aside>
                 <form action="">
-                    <input class="width-100" type="text" name="" id="search_bar" class="box"
+                    <input class="width-100 font small" type="text" name="" id="search_bar" class="box"
                         placeholder="Pesquisar em suas receitas">
                     <a href=""><img src="/img/filter-icon.png" class="hover icon-color"></a>
                 </form>
@@ -71,10 +71,10 @@
                             <span class="font green small"><%= count_recipes %> receitas</span>
                         </div>
                         <div class="profile-text">
-                            <div class="followers">
+                            <!-- <div class="followers">
                                 <img class="icon-color" src="/img/people-icon.png">
                                 <span class="font chocolate-brown small"><%= user_followers %> seguidores</span>
-                            </div>
+                            </div> -->
                             <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/profile"><button class="button small bold hover width-100">Visualizar</button></a>
                         </div>
                     </div>
@@ -127,10 +127,7 @@
                                 </div>
                             </div>
                             <div class="favorite">
-                                <button class="hover icon-color"><img src="/img/star-icon.png" alt=""></button>
-                            </div>
-                            <div>
-                           
+                                <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
                             </div>
                         </div>
                     </a>

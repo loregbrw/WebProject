@@ -1,34 +1,29 @@
-// const recipe = require('../model/Recipes');
+// Adicione um ouvinte de eventos de clique aos botões de estrela
+const starButtons = document.querySelectorAll('.star-btn');
 
-// const deleteButton = document.getElementById("delete-recipe");
+starButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+        const recipeId = button.dataset.recipeId;
+        
+        try {
+            const response = await fetch(`/api/recipes/${recipeId}/favorite`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ favorite: true }) // Envie o estado da receita como favorita
+            });
 
-// deleteButton.addEventListener('click', async (event) => {
-//     event.preventDefault();
-
-//     const response = confirm("Tem certeza que deseja apagar esta receita?");
-
-//     if (response) {
-//         await recipe.destroy({ where: { id: this_recipe.id_recipe } }); 
-//         window.location.href = `/${this_user.username}/home`;
-//     }
-// });
-
-
-// const deleteButton = document.getElementById("delete-recipe");
-
-// deleteButton.addEventListener('click', async () => {
-//     const recipe_id = deleteButton.getAttribute("data-recipe-id");
-//     const username = deleteButton.getAttribute("data-username");
-
-//     const response = confirm("Tem certeza que deseja apagar esta receita?");
-
-//     if (response) {
-//         try {
-//             const recipeToDelete = await recipe.findByPk(recipe_id);
-//             await recipeToDelete.destroy();
-//             window.location.href = `/${username}/home`;
-//         } catch (error) {
-//             console.error("Erro ao apagar a receita: ", error);
-//         }
-//     }
-// });
+            if (response.ok) {
+                // Se a solicitação for bem-sucedida, atualize a aparência do botão de estrela
+                button.classList.add('favorite'); // Adicione uma classe para indicar que a receita é favorita
+                // Atualize a imagem do botão de estrela para indicar que a receita é favorita
+                button.innerHTML = '<img src="/img/star-icon-filled.png" alt="">';
+            } else {
+                console.error('Erro ao marcar a receita como favorita');
+            }
+        } catch (error) {
+            console.error('Erro ao marcar a receita como favorita:', error);
+        }
+    });
+});
