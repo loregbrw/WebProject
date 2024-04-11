@@ -108,10 +108,16 @@ module.exports = {
         const types = req.body.types;
         if (types && types.length > 0) {
             const ingredientPromises = types.map(async (ty) => {
-                await recipe_type.create({
-                    type_id: ty.type_id.value,
-                    recipe_id: new_recipe.id_recipe
-                });
+                const checkbox = req.body.type_id;
+                if(checkbox){
+                    checkbox.checked = true;
+                    await checkbox.save();
+                    await recipe_type.create({
+                        type_id: ty.type_id.value,
+                        recipe_id: new_recipe.id_recipe
+                    });
+                }
+                
             });
 
             await Promise.all(ingredientPromises);
@@ -120,10 +126,15 @@ module.exports = {
         const meals = req.body.meals;
         if (meals && meals.length > 0) {
             const ingredientPromises = meals.map(async (ml) => {
-                await recipe_meal.create({
-                    meal_id: ml.meal_id.value,
-                    recipe_id: new_recipe.id_recipe
-                });
+                const checkbox = req.body.meal_id;
+                if(checkbox){
+                    checkbox.checked = true;
+                    await checkbox.save();
+                    await recipe_meal.create({
+                        meal_id: ml.meal_id.value,
+                        recipe_id: new_recipe.id_recipe
+                    });
+                }
             });
 
             await Promise.all(ingredientPromises);
