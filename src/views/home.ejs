@@ -127,7 +127,10 @@
                                 </div>
                             </div>
                             <div class="favorite">
-                                <button class="hover icon-color"><img src="/img/star-icon.png" alt=""></button>
+                                <button class="hover icon-color star-btn" data-recipe-id="<%= recipe.id_recipe %>">
+                                    <img src="/img/star-icon.png" alt="">
+                                </button>
+                                
                             </div>
                             <div>
                                 <% user_recipe_types.forEach(recipe_type => { %>
