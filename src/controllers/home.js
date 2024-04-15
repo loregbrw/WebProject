@@ -4,6 +4,7 @@ const follows = require('../model/Follows');
 const type = require('../model/Types');
 const recipe_type = require('../model/Recipe_types');
 const recipe_meal = require('../model/Recipe_meals');
+const recipe_calendar = require('../model/Recipes_calendar');
 
 const Sequelize = require('sequelize');
 const database = require('../config/db');
@@ -28,6 +29,13 @@ function linkDate(date) {
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
+}
+
+function dateF(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${year}-${month}-${day}`;
 }
 async function addDataForCurrentMonth() {
     const today = getToday();
@@ -107,10 +115,33 @@ module.exports = {
             user_recipe_meals.push(meals);
         }
 
+        const date_today = dateF(today);
+
+        const recipes_day = await recipe_calendar.findAll({
+            where: {
+                day: date_today
+            }
+        });
+
+        let recipes_all = [];
+
+        if (!recipes_day) {
+            // Se não houver entrada no calendário para a data fornecida, lidar com isso aqui
+            return res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today: format_today, link_today, user_recipe_types, user_recipe_meals });;
+        }
+
+        const recipe_ids = recipes_day.map(recipe => recipe.recipe_id);
+
+        recipes_all = await recipe.findAll({
+            where: {
+                id_recipe: recipe_ids,
+                user_id: this_user.id_user
+            }
+        });
 
         // Chamada da função para adicionar os dados
         addDataForCurrentMonth();
 
-        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today: format_today, link_today, user_recipe_types, user_recipe_meals });
+        res.render('../views/home', { this_user, user_recipes, user_followers, count_recipes, today: format_today, link_today, user_recipe_types, user_recipe_meals,  recipes: recipes_all });
     }
 }

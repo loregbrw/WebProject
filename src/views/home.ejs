@@ -31,8 +31,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
-                            class="logo-icon"></a>
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img
+                            src="/img/logo-white-green.png" class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -43,7 +43,8 @@
                     <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover"
+                                    href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
@@ -67,15 +68,21 @@
                     <img src="<%= this_user.image %>" class="profile-img">
                     <div class="profile-text">
                         <div class="profile-text">
-                            <span class="font chocolate-brown superbold"><%= this_user.name %></span>
-                            <span class="font green small"><%= count_recipes %> receitas</span>
+                            <span class="font chocolate-brown superbold">
+                                <%= this_user.name %>
+                            </span>
+                            <span class="font green small">
+                                <%= count_recipes %> receitas
+                            </span>
                         </div>
                         <div class="profile-text">
                             <!-- <div class="followers">
                                 <img class="icon-color" src="/img/people-icon.png">
                                 <span class="font chocolate-brown small"><%= user_followers %> seguidores</span>
                             </div> -->
-                            <a class="white text-decoration-none width-100" href="/<%= this_user.username %>/profile"><button class="button small bold hover width-100">Visualizar</button></a>
+                            <a class="white text-decoration-none width-100"
+                                href="/<%= this_user.username %>/profile"><button
+                                    class="button small bold hover width-100">Visualizar</button></a>
                         </div>
                     </div>
                 </div>
@@ -92,64 +99,83 @@
                 </div>
 
                 <div class="box gap">
-                    <div class="date-header">
-                        <span class="font chocolate-brown superbold small">Hoje - <%= today %></span>
-                        <a href="/<%= this_user.username %>/day/<%= link_today %>"><img class="icon-color" src="/img/eye-icon.png" class="hover"></a>
-                    </div>
-                    <!-- <div class="sec">
-                        <div class="meal font small white bold width-100 smallerhover">Café da manhã</div>
-                        <div class="recipes-link">
-                            <a href="" class="font small chocolate-brown bold width-100">Pão de queijo</a>
-                        </div>
-                    </div>
-                    <div class="sec">
-                        <div class="meal font small white bold width-100">Café da manhã</div>
-                        <div class="recipes-link">
-                            <a href="" class="font small chocolate-brown bold">Pão de queijo</a>
-                        </div>
-                    </div> -->
+                    <a href="/<%= this_user.username %>/day/<%= link_today %>" class="date-header no-decoration">
+                        <span class="font chocolate-brown superbold smallerhover">Hoje - <%= today %></span>
+                        <img class="icon-color" src="/img/eye-icon.png" class="hover">
+                    </a>
+                    <% if (recipes.length> 0) { %>
+                        <% recipes.forEach(recipe=> { %>
+                            <a href="/<%= this_user.username %>/view-recipes-<%= recipe.id_recipe %>" class="box day-recipe-box gap-10 width-100 no-decoration smallerhover">
+                                <span class="font chocolate-brown superbold margin-zero no-decoration"><%= recipe.name %></span>
+                                <hr class="margin-zero">
+                                <div class="recipe-info width-fit">
+                                    <div class="icon-info">
+                                        <img src="/img/icon-clock-green.png" alt="clock">
+                                        <span class="font small green"><%= recipe.duration %></span>
+                                    </div>
+                                    <div class="icon-info">
+                                        <img src="/img/icon-portions-green.png" alt="meal">
+                                        <span class="font small green"><%= recipe.portions %> porções</span>
+                                    </div>
+                                </div>
+                            </a>
+                        <% }); %>
+                    <% } else { %>
+                        <span class="font small bold yellow">Não há receitas para hoje.</span >
+                    <% } %>
                 </div>
             </aside>
             <article>
-                <% user_recipes.forEach((recipe, index) => { %>
-                    <a href="/<%= this_user.username %>/view-recipes-<%= recipe.id_recipe %>" class="recipe box hover smallerhover no-decoration">
-                        <img class="recipe-img" src="<%= recipe.image %>">
-                        <div class="recipe-text">
-                            <span class="font chocolate-brown superbold"><%= recipe.name %></span>
-                            <div class="recipe-info">
-                                <div class="icon-info">
-                                    <img src="/img/icon-clock-green.png" alt="clock">
-                                    <span class="font small green"><%= recipe.duration %></span>
-                                </div>
-                                <div class="icon-info">
-                                    <img src="/img/icon-portions-green.png" alt="meal">
-                                    <span class="font small green"><%= recipe.portions %> porções</span>
-                                </div>
+                <% user_recipes.forEach((recipe, index)=> { %>
+                <a href="/<%= this_user.username %>/view-recipes-<%= recipe.id_recipe %>" class="recipe box hover smallerhover no-decoration">
+                    <img class="recipe-img" src="<%= recipe.image %>">
+                    <div class="recipe-text">
+                        <span class="font chocolate-brown superbold">
+                            <%= recipe.name %>
+                        </span>
+                        <div class="recipe-info">
+                            <div class="icon-info">
+                                <img src="/img/icon-clock-green.png" alt="clock">
+                                <span class="font small green">
+                                    <%= recipe.duration %>
+                                </span>
                             </div>
-                            <div>
-                                <% user_recipe_types[index].forEach(type => { %>
-                                    <span style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;" 
-                                        class="meal font bold small text-decoration-none"><%= type.name %></span>
-                                <% }) %>
-                                <% user_recipe_meals[index].forEach(meal => { %>
-                                    <span style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;" 
-                                        class="meal font bold small text-decoration-none"><%= meal.name %></span>
-                                <% }) %>    
-                            </div>
-                            <div class="font small yellow description">
-                                <%= recipe.description %>
-                            </div>
-                            <div class="favorite">
-                                <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
-                            </div>
-                            
+                            <div class="icon-info">
+                                <img src="/img/icon-portions-green.png" alt="meal">
+                                <span class="font small green">
+                                    <%= recipe.portions %> porções
+                                </span>
                         </div>
-                    </a>
+                        </div>
+                        <!-- <div>
+                        <% user_recipe_types[index].forEach(type=> { %>
+                            <span style="background-color: <%= type.bg_color %>; color: <%= type.txt_color %>;"
+                                class="meal font bold small text-decoration-none">
+                                <%= type.name %>
+                            </span>
+                            <% }) %>
+                            <% user_recipe_meals[index].forEach(meal=> { %>
+                                <span
+                                    style="background-color: <%= meal.bg_color %>; color: <%= meal.txt_color %>;"
+                                    class="meal font bold small text-decoration-none">
+                                    <%= meal.name %>
+                                </span>
+                            <% }) %>
+                        </div> -->
+                        <div class="font small yellow description">
+                            <%= recipe.description %>
+                        </div>
+                        <div class="favorite">
+                            <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
+                        </div>
+                    </div>
+                </a>
                 <% }) %>
             </article>
-        </div>
-        <div class="button-more">
-            <a href="/<%= this_user.username %>/add-recipe"><img class="hover" src="/img/plus-icon.png"></a>
+            </div>
+            <div class="button-more">
+                <a href="/<%= this_user.username %>/add-recipe"><img class="hover" src="/img/plus-icon.png"></a>
+            </div>
         </div>
     </main>
     <script src="/js/dark_mode.js" defer></script>

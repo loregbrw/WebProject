@@ -44,7 +44,8 @@ module.exports = {
         // Consultar todas as receitas cujos IDs estão na lista de IDs de receitas
         recipes_all = await recipes.findAll({
             where: {
-                id_recipe: recipe_ids
+                id_recipe: recipe_ids,
+                user_id: this_user.id_user
             }
         });
 

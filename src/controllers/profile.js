@@ -19,31 +19,25 @@ function calculateAge(birthDate) {
     return age;
 }
 
-async function mostRecipe(user) {
+async function mostRecipe(userId) {
     const today = new Date();
     const month_first_day = new Date(today.getFullYear(), today.getMonth(), 1);
     const month_last_day = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
+    // Selecionar todos os registros da tabela Recipe_calendar para o usuário e o mês atual
     const consumed_recipe_calendar = await recipe_calendar.findAll({
         where: {
-            user_id: user,
-            createdAt: {
+            user_id: userId,
+            day: {
                 [Sequelize.Op.between]: [month_first_day, month_last_day]
             }
         }
     });
-    
-    const consumed_recipes = await Promise.all(consumed_recipe_calendar.map(async entry => {
-        const recipe_entry = await recipe.findByPk(entry.recipe_id);
-        return {
-            id_recipe: recipe_entry.id_recipe,
-            name: recipe_entry.name
-        };
-    }));
 
+    // Contar a ocorrência de cada receita para esse usuário e nesse mês
     const count_recipe = {};
-    consumed_recipes.forEach(entry => {
-        const recipe_id = entry.recipe.id_recipe;
+    consumed_recipe_calendar.forEach(entry => {
+        const recipe_id = entry.recipe_id;
         if (count_recipe[recipe_id]) {
             count_recipe[recipe_id]++;
         } else {
@@ -51,6 +45,7 @@ async function mostRecipe(user) {
         }
     });
 
+    // Identificar a receita com o maior número de ocorrências
     let most_recipe;
     let most_count = 0;
     for (const recipeId in count_recipe) {
@@ -60,13 +55,15 @@ async function mostRecipe(user) {
         }
     }
 
+    // Retornar os detalhes dessa receita
     if (most_recipe) {
-        const recipe_name = await recipe.findByPk(most_recipe);
-        return recipe_name;
+        const recipe_details = await recipe.findByPk(most_recipe);
+        return recipe_details.name;
     } else {
         return "Nenhuma receita";
     }
 }
+
 
 
 module.exports = {
