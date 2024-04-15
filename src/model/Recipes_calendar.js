@@ -27,24 +27,10 @@ const recipe_calendar = database.define('Recipe_calendar', {
             key: 'id_user'
         }
     },
-    calendar_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: calendar,
-            key: 'id_calendar'
-        }
+    day: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
-}, {
-    // Remover a restrição de chave única para recipe_id
-    indexes: [
-        {
-            unique: false,
-            fields: ['recipe_id']
-        }
-    ]
 });
-
-recipe.belongsToMany(calendar, { through: recipe_calendar, foreignKey: 'recipe_id' });
 
 module.exports = recipe_calendar;

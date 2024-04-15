@@ -76,9 +76,14 @@
                 <div class="off-day"></div>
             <% } 
 
-            for (let day = 1; day <= month_days; day++) { %>
-                <a href="/<%= this_user.username %>/day/<%= day %>-<%= month_num %>-<%= year %>" class="day no-decoration">
-                    <div class=" green superbold font hover"><%= day %></div>
+            for (let day = 1; day <= month_days; day++) { 
+                let new_day = `${day}`;
+                if (day < 10) {
+                    new_day = "0" + new_day;
+                }
+            %>
+                <a href="/<%= this_user.username %>/day/<%= new_day %>-<%= month_num %>-<%= year %>" class="day no-decoration">
+                    <div class="green superbold font hover"><%= day %></div>
                     <img src="/img/plus-icon2.png" class="hover">
                 </a>
             <% }
@@ -88,6 +93,7 @@
             for (let i = 0; i < remaining_days; i++) { %>
                 <div class="off-day"></div>
             <% } %>
+
         </div>
     </main>
     <script src="/js/dark_mode.js" defer></script>

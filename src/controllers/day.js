@@ -3,18 +3,6 @@ const recipe_calendar = require('../model/Recipes_calendar');
 const calendar = require('../model/Calendar');
 const recipes = require('../model/Recipes');
 
-function formatDate(date) {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    return `${day}/${month}`;
-}
-
-function linkDate(date) {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-}
 
 
 module.exports = {
@@ -24,42 +12,15 @@ module.exports = {
         const parametro_month = req.params.month;
         const parametro_year = req.params.year;
 
-        const selected_date = new Date(`${parametro_year}-${parametro_month}-${parametro_day}`);
-        const formatted_date = formatDate(selected_date);
-        const link_date = linkDate(selected_date);
+        const selected_date = `${parametro_year}-${parametro_month}-${parametro_day}`;
+        const formatted_date = `${parametro_day}/${parametro_month}`;
+        const link_date = `${parametro_day}-${parametro_month}-${parametro_year}`;
 
-        const this_date = await calendar.findOne({
+        const recipes_day = await recipe_calendar.findAll({
             where: {
                 day: selected_date
             }
         });
-
-        if (!this_date) {
-            // Se não houver entrada no calendário para a data fornecida, lidar com isso aqui
-            return res.status(404).send('Nenhum dado encontrado para esta data.');
-        }
-
-        const recipes_day = await recipe_calendar.findAll({
-            where: {
-                calendar_id: this_date.id_calendar
-            }
-        });
-        
-        // Extrair os IDs das receitas do resultado de recipes_day
-        const recipe_ids = recipes_day.map(recipe => recipe.recipe_id);
-        
-        // Consultar todas as receitas cujos IDs estão na lista de IDs de receitas
-        const recipes_all = await recipes.findAll({
-            where: {
-                id_recipe: recipe_ids
-            }
-        });
-        
-    
-        // Convertendo o objeto SequelizeInstance em um array de objetos JavaScript simples
-        // const recipes_all = recipes_day.map(recipe => recipe.toJSON());
-
-        console.log("AAA RECIPES ALL: ", recipes_all);
 
         const this_user = await user.findOne({
             where: {
@@ -68,6 +29,31 @@ module.exports = {
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
         });
 
-        res.render('../views/day', {this_user, formatted_date, recipes: recipes_all, link_date});
+        let recipes_all = [];
+
+        if (!recipes_day) {
+            // Se não houver entrada no calendário para a data fornecida, lidar com isso aqui
+            return res.render('../views/day', { this_user, formatted_date, recipes: recipes_all, link_date });
+
+        }
+
+
+        // Extrair os IDs das receitas do resultado de recipes_day
+        const recipe_ids = recipes_day.map(recipe => recipe.recipe_id);
+
+        // Consultar todas as receitas cujos IDs estão na lista de IDs de receitas
+        recipes_all = await recipes.findAll({
+            where: {
+                id_recipe: recipe_ids
+            }
+        });
+
+
+        // Convertendo o objeto SequelizeInstance em um array de objetos JavaScript simples
+        // const recipes_all = recipes_day.map(recipe => recipe.toJSON());
+
+        console.log("AAA RECIPES ALL: ", recipes_all);
+
+        res.render('../views/day', { this_user, formatted_date, recipes: recipes_all, link_date });
     }
 }

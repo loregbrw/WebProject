@@ -22,6 +22,10 @@ function getThisYear(date) {
     return date.getFullYear();
 }
 
+function formatNumberWithTwoDigits(number) {
+    return number.toString().padStart(2, '0');
+}
+
 module.exports = {
     async pagCalendarGet(req, res) {
         const parametro = req.params.username;
@@ -40,6 +44,8 @@ module.exports = {
         const month_name = getMonthName(month_num);
         const year = getThisYear(today);
 
-        res.render('../views/calendar', { this_user, today, month_num, month_name, year});
+        const month_two = formatNumberWithTwoDigits(month_num);
+
+        res.render('../views/calendar', { this_user, today, month_num: month_two, month_name, year});
     }
 }

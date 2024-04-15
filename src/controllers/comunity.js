@@ -5,13 +5,6 @@ const calendar = require('../model/Calendar');
 const { link } = require('../../routes');
 const { Sequelize } = require('sequelize');
 
-function linkDate(date) {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-}
-
 module.exports = {
     async pagComunityGet(req, res) {
         const parametro_user = req.params.username;
@@ -19,8 +12,7 @@ module.exports = {
         const parametro_month = req.params.month;
         const parametro_year = req.params.year;
 
-        const selected_date = new Date(`${parametro_year}-${parametro_month}-${parametro_day}`);
-        const link_date = linkDate(selected_date);
+        const link_date = `${parametro_day}-${parametro_month}-${parametro_year}`;
 
         const this_user = await user.findOne({
             where: {
@@ -51,26 +43,17 @@ module.exports = {
             }
         });
     
-        const selected_date = new Date(`${parametro_year}-${parametro_month}-${parametro_day}`);
-    
-        const this_date = await calendar.findOne({
-            where: {
-                day: `${parametro_year}-${parametro_month}-${parametro_day}`
-            }
-        });
-        
-        
-        
+        const selected_date = `${parametro_year}-${parametro_month}-${parametro_day}`;
     
         console.log(this_recipe_id);
         console.log(this_user.id_user);
-        console.log(this_date.id_calendar);
+        console.log(selected_date);
     
         try {
             const result = await recipe_calendar.create({
                 recipe_id: this_recipe_id,
                 user_id: this_user.id_user,
-                calendar_id: this_date.id_calendar
+                day: selected_date
             });
     
             // Redirecionar de volta para a página do dia com os parâmetros de data originais
