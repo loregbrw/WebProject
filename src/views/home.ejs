@@ -136,6 +136,9 @@
                                         class="meal font bold small text-decoration-none"><%= meal.name %></span>
                                 <% }) %>    
                             </div>
+                            <div class="font small yellow description">
+                                <%= recipe.description %>
+                            </div>
                             <div class="favorite">
                                 <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
                             </div>

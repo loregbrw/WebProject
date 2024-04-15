@@ -87,6 +87,12 @@ main {
     }
 }
 
+hr {
+    border: #C08332 solid;
+    width: 100%;
+
+    opacity: 1;
+}
 
 .box {
     display: flex;
@@ -244,7 +250,7 @@ aside form input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5px 10px;
+    padding:10px;
 
     gap: 5px;
 }
@@ -260,9 +266,18 @@ aside form input {
 }
 
 
-.favorite {
-    height: 100%;
+.description {
+    max-height: 95px; /* Defina a altura máxima desejada */
     width: 100%;
+    overflow: hidden; /* Oculta o texto que excede a altura máxima */
+    text-overflow: ellipsis; /* Exibe os três pontos (...) quando o texto é cortado */
+}
+
+
+.favorite {
+    height: fit-content;
+    width: 100%;
+    margin-top: auto;
 
     display: flex;
     justify-content: flex-end;

@@ -35,6 +35,14 @@ const recipe_calendar = database.define('Recipe_calendar', {
             key: 'id_calendar'
         }
     }
+}, {
+    // Remover a restrição de chave única para recipe_id
+    indexes: [
+        {
+            unique: false,
+            fields: ['recipe_id']
+        }
+    ]
 });
 
 recipe.belongsToMany(calendar, { through: recipe_calendar, foreignKey: 'recipe_id' });

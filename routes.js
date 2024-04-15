@@ -25,7 +25,6 @@ const multerConfig = require('./src/config/multer');
 
 const recipe = require('./src/model/Recipes');
 
-// const upload = multer(multerConfig);
 
 route.get('/', index.pagIndexGet);
 
@@ -67,6 +66,7 @@ route.post('/:username/edit-profile', multer(multerConfig).single('user_image'),
 
 
 route.get('/:username/add-recipe/:day-:month-:year', comunity.pagComunityGet);
+route.post('/:username/add-recipe/:day-:month-:year', comunity.pagComunityPost);
 
 route.get('/:username/add-recipe', add_recipe.pagAddRecipeGet);
 route.post('/:username/add-recipe', multer(multerConfig).single('recipe_image'), add_recipe.pagAddRecipePost);

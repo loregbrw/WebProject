@@ -2,25 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
-.view-day .box {
+.view-day > .box {
     display: flex;
     align-items: flex-start;
-    width: 55%;
-    padding: 45px 55px;
-}
-
-.day-meal{
-    width: 100%;
+    width: 750px;
+    max-width: 100%;
+    padding: 5%;
 }
 
 .day-recipe-box {
-    width: calc(33.3% - 14px);
-}
-
-.day-recipe-box .box {
     padding: 10px;
-    width: 100%;
+
 }

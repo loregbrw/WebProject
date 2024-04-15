@@ -1,6 +1,7 @@
 const user = require('../model/Users');
 const recipe_calendar = require('../model/Recipes_calendar');
 const calendar = require('../model/Calendar');
+const recipes = require('../model/Recipes');
 
 function formatDate(date) {
     const day = String(date.getDate()).padStart(2, '0');
@@ -43,6 +44,22 @@ module.exports = {
                 calendar_id: this_date.id_calendar
             }
         });
+        
+        // Extrair os IDs das receitas do resultado de recipes_day
+        const recipe_ids = recipes_day.map(recipe => recipe.recipe_id);
+        
+        // Consultar todas as receitas cujos IDs estão na lista de IDs de receitas
+        const recipes_all = await recipes.findAll({
+            where: {
+                id_recipe: recipe_ids
+            }
+        });
+        
+    
+        // Convertendo o objeto SequelizeInstance em um array de objetos JavaScript simples
+        // const recipes_all = recipes_day.map(recipe => recipe.toJSON());
+
+        console.log("AAA RECIPES ALL: ", recipes_all);
 
         const this_user = await user.findOne({
             where: {
@@ -51,6 +68,6 @@ module.exports = {
             attributes: ['id_user', 'name', 'email', 'password', 'birthdate', 'username', 'image', 'description']
         });
 
-        res.render('../views/day', {this_user, formatted_date, recipes_day, link_date});
+        res.render('../views/day', {this_user, formatted_date, recipes: recipes_all, link_date});
     }
 }

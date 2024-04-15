@@ -54,33 +54,31 @@
     </header>
     <main class="flex-column gap-20">
         <div class="center width-100">
-            <article class="flex-row gap-40 width-fit">
+            <form action="/<%= this_user.username %>/add-recipe/<%= link_date %>" method="post" class="flex-row flex-wrap gap-40 width-fit">
                 <% user_recipes.forEach(recipe => { %>
-                <a class="recipe box hover no-decoration" id="recipe_<%= recipe.id %>">
-                    <img class="recipe-img" src="<%= recipe.image %>">
-                    <div class="recipe-text">
-                        <span class="font chocolate-brown superbold"><%= recipe.name %></span>
-                        <div class="recipe-info">
-                            <div class="icon-info">
-                                <img src="/img/icon-clock-green.png" alt="clock">
-                                <span class="font small green"><%= recipe.duration %></span>
+                    <button class="recipe box hover no-decoration" type="submit" name="recipe_id" value="<%= recipe.id_recipe %>">
+                        <img class="recipe-img" src="<%= recipe.image %>">
+                        <div class="recipe-text">
+                            <span class="font chocolate-brown superbold"><%= recipe.name %></span>
+                            <div class="recipe-info">
+                                <div class="icon-info">
+                                    <img src="/img/icon-clock-green.png" alt="clock">
+                                    <span class="font small green"><%= recipe.duration %></span>
+                                </div>
+                                <div class="icon-info">
+                                    <img src="/img/icon-portions-green.png" alt="meal">
+                                    <span class="font small green"><%= recipe.portions %> porções</span>
+                                </div>
                             </div>
-                            <div class="icon-info">
-                                <img src="/img/icon-portions-green.png" alt="meal">
-                                <span class="font small green"><%= recipe.portions %> porções</span>
+                            <div class="favorite">
+                                <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
                             </div>
                         </div>
-                        <div class="favorite">
-                            <img class="icon-color" src="/img/star-<%= recipe.favorite ? 'filled-icon' : 'icon' %>.png">
-                        </div>
-                    </div>
-                </a>
+                    </button>
                 <% }) %>
+            </form>
             
-            </article>
-        </div>
-        <div class="button-more hover">
-            <a href=""><img src="/img/plus-icon.png" alt=""></a>
+            
         </div>
     </main>
     <script src="/js/dark_mode.js" defer></script>

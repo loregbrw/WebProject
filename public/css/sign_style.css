@@ -48,7 +48,7 @@ form {
     width: 100%;
 }
 
-form div {
+form > div {
     width: 100%;
 }
 

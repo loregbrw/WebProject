@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
@@ -27,7 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header_style.css">
     <link rel="stylesheet" type="text/css" href="/css/recipe_style.css">
-    <title><%= formatted_date %></title>
+    <title>
+        <%= formatted_date %>
+    </title>
 </head>
 
 <body>
@@ -35,8 +37,8 @@
         <nav class="header navbar navbar-expand-lg">
             <div class="container-fluid padding-zero">
                 <div class="menu">
-                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img src="/img/logo-white-green.png"
-                            class="logo-icon"></a>
+                    <a class="padding-zero margin-zero hover" href="/<%= this_user.username %>/home"><img
+                            src="/img/logo-white-green.png" class="logo-icon"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -47,7 +49,8 @@
                     <div class="collapse navbar-collapse center" id="navbarContent">
                         <ul class="flex-row gap-20 padding-zero margin-zero">
                             <li class="center">
-                                <a class="font chocolate-brown superbold no-decoration hover" href="/"><span>Sair</span></a>
+                                <a class="font chocolate-brown superbold no-decoration hover"
+                                    href="/"><span>Sair</span></a>
                             </li>
                             <li class="center">
                                 <img class="hover" id="dark_mode_icon" src="/img/icon-dark-mode-0.png">
@@ -61,42 +64,42 @@
     <main>
         <div class="view-day">
             <div class="box gap-30">
-                <h2 class="font chocolate-brown superbold big">Dia - <%= formatted_date %></h2>
-                <% if (recipes_day.length > 0) { %>
-                <% recipes_day.forEach(recipe => { %>
-                <div class="day-meal flex-column gap-10">
-                    <span class="small-box box-green white font bold">
-                        <%= recipe.Recipe.recipe_type %>
-                    </span>
-                    <div class="flex-row flex-wrap gap-20">
-                        <div class="day-recipe-box">
-                            <div class="box gap-10">
-                                <h3 class="font chocolate-brown bold"><%= recipe.Recipe.name %></h3>
-                                <div class="recipe-info">
+                <h2 class="font chocolate-brown superbold big">Dia - <%= formatted_date %>
+                </h2>
+                <% if (recipes.length> 0) { %>
+                    <div class="width-100 flex-row flex-wrap gap-10">
+                        <% recipes.forEach(recipe=> { %>
+                            <div class="box day-recipe-box gap-10 width-fit">
+                                <h3 class="font chocolate-brown bold margin-zero ">
+                                    <%= recipe.name %>
+                                </h3>
+                                <hr class="margin-zero">
+                                <div class="recipe-info width-fit">
                                     <div class="icon-info">
                                         <img src="/img/icon-clock-green.png" alt="clock">
-                                        <span class="font small green"><%= recipe.Recipe.duration %></span>
+                                        <span class="font small green">
+                                            <%= recipe.duration %>
+                                        </span>
                                     </div>
                                     <div class="icon-info">
                                         <img src="/img/icon-portions-green.png" alt="meal">
-                                        <span class="font small green"><%= recipe.Recipe.portions %> porções</span>
+                                        <span class="font small green">
+                                            <%= recipe.portions %> porções
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="flex-row width-100 gap-10 flex-start flex-wrap">
-                                    <!-- Outras informações da receita -->
-                                </div>
                             </div>
-                        </div>
+                        <% }); %>
                     </div>
                 </div>
-                <% }); %>
                 <% } else { %>
                 <p>Não há receitas para este dia.</p>
                 <% } %>
             </div>
         </div>
         <div class="button-more">
-            <a href="/<%= this_user.username %>/add-recipe/<%= link_date %>"><img class="hover" src="/img/plus-icon.png"></a>
+            <a href="/<%= this_user.username %>/add-recipe/<%= link_date %>"><img class="hover"
+                    src="/img/plus-icon.png"></a>
         </div>
     </main>
     <script src="/js/dark_mode.js" defer></script>
